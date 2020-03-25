@@ -10,7 +10,7 @@ public class Server {
     private static AsyncServerHandle serverHandle;
     public volatile static long clientCount=0;
     public static void start(){
-
+        start(DEFAULT_PORT);
     }
     public static synchronized void start(int port){
         if(null != serverHandle ){

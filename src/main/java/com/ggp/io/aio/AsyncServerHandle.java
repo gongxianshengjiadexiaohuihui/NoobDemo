@@ -28,6 +28,9 @@ public class AsyncServerHandle implements Runnable{
 
     @Override
     public void run() {
+        /**
+         * 因为下面的accept方法是非阻塞的，为了不然程序结束，让当前线程挂起，如果出现异常调用countDown方法，让程序结束
+         */
         latch =new CountDownLatch(1);
         channel.accept(this,new AcceptHandler());
         try {
