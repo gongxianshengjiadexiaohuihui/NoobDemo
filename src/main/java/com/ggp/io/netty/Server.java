@@ -47,8 +47,49 @@ public class Server {
         serverBootstrap.channel(NioServerSocketChannel.class);
 
         serverBootstrap.childHandler(new ChannelInitializer<SocketChannel>() {
+            /**
+             * initChannel就是往责任链里添加处理方法来过滤接入的socketChannel
+             * @param ch
+             * @throws Exception
+             */
             @Override
             protected void initChannel(SocketChannel ch) throws Exception {
+                /**
+                 *  *  +---------------------------------------------------+---------------+
+                 *  *  |                           ChannelPipeline         |               |
+                 *  *  |                                                  \|/              |
+                 *  *  |    +---------------------+            +-----------+----------+    |
+                 *  *  |    | Inbound Handler  N  |            | Outbound Handler  1  |    |
+                 *  *  |    +----------+----------+            +-----------+----------+    |
+                 *  *  |              /|\                                  |               |
+                 *  *  |               |                                  \|/              |
+                 *  *  |    +----------+----------+            +-----------+----------+    |
+                 *  *  |    | Inbound Handler N-1 |            | Outbound Handler  2  |    |
+                 *  *  |    +----------+----------+            +-----------+----------+    |
+                 *  *  |              /|\                                  .               |
+                 *  *  |               .                                   .               |
+                 *  *  | ChannelHandlerContext.fireIN_EVT() ChannelHandlerContext.OUT_EVT()|
+                 *  *  |        [ method call]                       [method call]         |
+                 *  *  |               .                                   .               |
+                 *  *  |               .                                  \|/              |
+                 *  *  |    +----------+----------+            +-----------+----------+    |
+                 *  *  |    | Inbound Handler  2  |            | Outbound Handler M-1 |    |
+                 *  *  |    +----------+----------+            +-----------+----------+    |
+                 *  *  |              /|\                                  |               |
+                 *  *  |               |                                  \|/              |
+                 *  *  |    +----------+----------+            +-----------+----------+    |
+                 *  *  |    | Inbound Handler  1  |            | Outbound Handler  M  |    |
+                 *  *  |    +----------+----------+            +-----------+----------+    |
+                 *  *  |              /|\                                  |               |
+                 *  *  +---------------+-----------------------------------+---------------+
+                 *  *                  |                                  \|/
+                 *  *  +---------------+-----------------------------------+---------------+
+                 *  *  |               |                                   |               |
+                 *  *  |       [ Socket.read() ]                    [ Socket.write() ]     |
+                 *  *  |                                                                   |
+                 *  *  |  Netty Internal I/O Threads (Transport Implementation)            |
+                 *  *  +-------------------------------------------------------------------+
+                 */
                 ch.pipeline().addLast(new ServerHandler());
             }
         });

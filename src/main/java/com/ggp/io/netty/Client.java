@@ -18,7 +18,6 @@ import java.util.concurrent.CountDownLatch;
 public class Client {
     private static String DEFAULT_HOST = "127.0.0.1";
     private static int DEFAULT_PORT=12345;
-    private static CountDownLatch latch;
     public static void start(){
         start(DEFAULT_HOST,DEFAULT_PORT);
     }
@@ -30,6 +29,7 @@ public class Client {
         clientBootstrap.option(ChannelOption.SO_KEEPALIVE,true);
 
         clientBootstrap.handler(new ChannelInitializer<SocketChannel>() {
+
             @Override
             protected void initChannel(SocketChannel ch) throws Exception {
                 ch.pipeline().addLast(new ClientHandler());
