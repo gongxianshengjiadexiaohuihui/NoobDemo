@@ -1,4 +1,4 @@
-package com.ggp.juc.a_thread_base;
+package com.ggp.juc.juc01_thread_base;
 
 /**
  * @Author:GGP

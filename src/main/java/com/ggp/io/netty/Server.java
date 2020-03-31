@@ -29,7 +29,7 @@ public class Server {
          * 第二个，通常称为“worker”，当boss接受连接并注册被接受的连接到worker时，处理被接受连接的流量。
          * 使用了多少线程以及如何将它们映射到创建的通道取决于EventLoopGroup实现，甚至可以通过构造函数进行配置。
          */
-        EventLoopGroup accptor = new NioEventLoopGroup();
+        EventLoopGroup acceptor = new NioEventLoopGroup();
         EventLoopGroup worker = new NioEventLoopGroup();
         /**
          * 创建启动类
@@ -39,7 +39,7 @@ public class Server {
          *  Set the {@link EventLoopGroup} for the parent (acceptor) and the child (client)
          *  第一个参数用于处理接受客户端连接，第二个参数用于处理请求内容
          */
-        serverBootstrap.group(accptor,worker);
+        serverBootstrap.group(acceptor,worker);
         serverBootstrap.option(ChannelOption.SO_BACKLOG,1024);
         /**
          * 创建服务端channel

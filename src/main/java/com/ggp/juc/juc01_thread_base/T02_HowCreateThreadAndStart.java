@@ -1,4 +1,4 @@
-package com.ggp.juc.a_thread_base;
+package com.ggp.juc.juc01_thread_base;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;

@@ -1,6 +1,4 @@
-package com.ggp.juc.a_thread_base;
-
-import org.junit.Test;
+package com.ggp.juc.juc01_thread_base;
 
 /**
  * @Author:GGP
