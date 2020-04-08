@@ -9,6 +9,6 @@
         <module name="NoobDemo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="9" />
   </component>
 </project>
