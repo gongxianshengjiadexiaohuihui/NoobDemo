@@ -14,14 +14,14 @@ import java.util.List;
 public class C01_ListGetTest {
     static List<String> tikets = new ArrayList<>();
     static {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 15; i++) {
             tikets.add("票编号"+i);
         }
     }
 
 
     public static void main(String[] args) {
-        for (int i = 0; i <2 ; i++) {
+        for (int i = 0; i <3 ; i++) {
             new Thread(()->{
                 while (tikets.size()>0){
                     /**
