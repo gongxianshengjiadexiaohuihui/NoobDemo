@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @Author:GGP
  * @Date:2020/4/18 22:23
  * @Description:
+ * 无界，最大长度是int的最大值
  * 内部使用的是ReentrantLock 可以被打断 而且可以用condition 分别通知生产者和消费者进行生产或者消费
  */
 public class Q02_LinkedBlockingQueue {
