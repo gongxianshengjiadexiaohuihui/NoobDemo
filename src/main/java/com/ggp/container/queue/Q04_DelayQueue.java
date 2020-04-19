@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * 2、compareTo接口定义比较的方法
  * 这个队列是放的时候就已经按时间排好序了，本质是用了一个PriorityQueue,内部是一个二叉树，类似于堆排序的方式进行排序，最小的在堆的上面
  */
-public class Q03_DelayQueue {
+public class Q04_DelayQueue {
     public static BlockingQueue<MyTask> tasks = new DelayQueue<>();
 
     public static void main(String[] args)throws Exception {
