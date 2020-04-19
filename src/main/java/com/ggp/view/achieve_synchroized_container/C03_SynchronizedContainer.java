@@ -1,4 +1,4 @@
-package com.ggp.juc.juc05_container;
+package com.ggp.view.achieve_synchroized_container;
 
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
  * @Author:GGP
  * @Date:2020/4/5 16:15
  * @Description:
- * 写一个固定容量的同步容器，拥有put和get方法，以及getCount方法，能够支持2个生产者线程以及10个消费者线程的阻塞调用
  */
 public class C03_SynchronizedContainer {
     public static void main(String[] args) {

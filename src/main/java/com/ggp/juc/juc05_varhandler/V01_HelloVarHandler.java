@@ -1,4 +1,4 @@
-package com.ggp.juc.juc06_varhandler;
+package com.ggp.juc.juc05_varhandler;
 
 
 import java.lang.invoke.MethodHandles;

@@ -1,4 +1,4 @@
-package com.ggp.juc.juc05_container;
+package com.ggp.view.achieve_synchroized_container;
 
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;

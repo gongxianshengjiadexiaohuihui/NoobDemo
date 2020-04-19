@@ -1,4 +1,4 @@
-package com.ggp.juc.juc07_threadlocal;
+package com.ggp.juc.juc06_threadlocal;
 
 import java.util.concurrent.TimeUnit;
 

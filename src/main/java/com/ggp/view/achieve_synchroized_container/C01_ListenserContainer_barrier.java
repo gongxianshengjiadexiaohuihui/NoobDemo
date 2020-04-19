@@ -1,4 +1,4 @@
-package com.ggp.juc.juc05_container;
+package com.ggp.view.achieve_synchroized_container;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,6 @@ import java.util.concurrent.CyclicBarrier;
  * @Author:GGP
  * @Date:2020/4/5 15:09
  * @Description:
- *  淘宝面试题
- *  实现一个容器，提供两个方法add、size
- *  线程1，添加10个元素到容器中
- *  线程2，实时监测元素个数，当个数到5个时，线程2给出提示并结束
  */
 public class C01_ListenserContainer_barrier {
     public static void main(String[] args) {

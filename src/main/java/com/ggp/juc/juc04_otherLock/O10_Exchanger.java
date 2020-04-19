@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
  * @Author:GGP
  * @Date:2020/4/4 20:02
  * @Description:
+ * 用于两个线程通信交换数据
  */
 public class O10_Exchanger {
     static Exchanger<String> exchanger = new Exchanger<>();
