@@ -1,2 +1,3 @@
 # Queue和List的区别到底在哪里
-    主要是Queue提供了offer、poll、put、take这些个对线程友好的或者阻塞或者等待方法
+    Queue添加了对多线程友好的API offer  peek  poll  锁
+    BlockingQueue又添加了对线程友好的put和take，这两个实现了阻塞操作
