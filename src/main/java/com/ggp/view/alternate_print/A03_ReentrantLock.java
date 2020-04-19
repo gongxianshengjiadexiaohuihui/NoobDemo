@@ -9,6 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Date:2020/4/19 19:15
  * @Description:
  * 分出了两个condition，同时让两个线程竞争一个锁，执行完后释放锁并通知另外一个线程去拿锁
+ * lock锁的这段代码是执行前都会校验是否拥有锁，包括执行完一段回来后依然要校验
  */
 public class A03_ReentrantLock {
     public static void main(String[] args) {
@@ -25,6 +26,7 @@ public class A03_ReentrantLock {
                     numLock.await();
 
                 }
+               letterLock.signal();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }finally {
@@ -40,6 +42,7 @@ public class A03_ReentrantLock {
                     numLock.signal();
                     letterLock.await();
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }finally {
