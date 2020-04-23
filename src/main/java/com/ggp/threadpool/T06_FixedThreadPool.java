@@ -23,7 +23,7 @@ import java.util.concurrent.Future;
  * 并发是指任务提交，并行是指任务执行。
  * 并发是并行的子集。并行是多个cpu可以同时处理，并发是多个任务可以同时过来。
  */
-public class FixedThreadPool {
+public class T06_FixedThreadPool {
     public static void main(String[] args)throws Exception {
         long start = System.currentTimeMillis();
         getPrime(1, 200000);
