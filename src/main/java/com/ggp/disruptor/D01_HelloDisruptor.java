@@ -2,6 +2,7 @@ package com.ggp.disruptor;
 
 import com.lmax.disruptor.EventTranslator;
 import com.lmax.disruptor.EventTranslatorOneArg;
+import com.lmax.disruptor.ExceptionHandler;
 import com.lmax.disruptor.RingBuffer;
 import com.lmax.disruptor.dsl.Disruptor;
 
@@ -31,7 +32,27 @@ public class D01_HelloDisruptor {
         /**
          * 配置handler,消费者
          */
-        disruptor.handleEventsWith(new LongEventHandler());
+        LongEventHandler handler = new LongEventHandler();
+        disruptor.handleEventsWith(handler);
+        disruptor.handleExceptionsFor(handler).with(new ExceptionHandler<LongEvent>() {
+            @Override
+            public void handleEventException(Throwable throwable, long l, LongEvent longEvent) {
+                System.out.println("处理事件异常");
+                throwable.printStackTrace();
+            }
+
+            @Override
+            public void handleOnStartException(Throwable throwable) {
+                System.out.println("启动时异常");
+                throwable.printStackTrace();
+            }
+
+            @Override
+            public void handleOnShutdownException(Throwable throwable) {
+                System.out.println("关闭时异常");
+                throwable.printStackTrace();
+            }
+        });
         disruptor.start();
         /**
          * 获取环形数组用于发布事件
