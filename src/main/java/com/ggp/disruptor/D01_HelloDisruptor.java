@@ -29,9 +29,10 @@ public class D01_HelloDisruptor {
          */
         Disruptor<LongEvent> disruptor = new Disruptor<LongEvent>(factory,bufferSize,Executors.defaultThreadFactory());
         /**
-         * 配置handler
+         * 配置handler,消费者
          */
         disruptor.handleEventsWith(new LongEventHandler());
+        disruptor.start();
         /**
          * 获取环形数组用于发布事件
          */
