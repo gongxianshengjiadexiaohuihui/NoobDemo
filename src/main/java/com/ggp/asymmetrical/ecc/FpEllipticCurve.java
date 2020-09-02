@@ -5,8 +5,7 @@ import java.math.BigInteger;
 /**
  * @Author:ggp
  * @Date:2020-09-01 13:55
- * @Description:
- * 有限域上的椭圆曲线( ≡/表示不同余)
+ * @Description: 有限域上的椭圆曲线(≡ / 表示不同余)
  * Fp={y^²≡x^³+ax+b(mod p)，4a^³+27b^²≡/0(mod p)}U{0}
  */
 public class FpEllipticCurve extends EllipticCurve {
@@ -31,13 +30,13 @@ public class FpEllipticCurve extends EllipticCurve {
      */
     private EllipticCurvePoint G;
 
-    public FpEllipticCurve(BigInteger a, BigInteger b,BigInteger P, BigInteger N, BigInteger n, BigInteger h, EllipticCurvePoint G) {
+    public FpEllipticCurve(BigInteger a, BigInteger b, BigInteger P, BigInteger N, BigInteger n, BigInteger h, EllipticCurvePoint G) {
         super(a, b);
-        P=P;
-        N = N;
-        n = n;
-        h = h;
-        G = G;
+        this.P = P;
+        this.N = N;
+        this.n = n;
+        this.h = h;
+        this.G = G;
     }
 
     /**
@@ -71,7 +70,7 @@ public class FpEllipticCurve extends EllipticCurve {
     @Override
     public EllipticCurvePoint neg(EllipticCurvePoint point) {
         check(point);
-        if(null == point){
+        if (null == point) {
             return null;
         }
         EllipticCurvePoint neg = new EllipticCurvePoint(point.getX(), point.getY().negate().mod(P));
@@ -79,13 +78,72 @@ public class FpEllipticCurve extends EllipticCurve {
         return neg;
     }
 
+    public BigInteger inverseMod(BigInteger k){
+        return inverseMod(k,P);
+    }
     /**
      * 求逆元，用于模的除法
+     * (a / b) mod p= (a * b') mod p
+     * b' 为 b 的逆元，b * b' mod p = 1
+     * b * b' = p*k +1
+     * 根据贝祖等式
+     * a*x + b*y = gcd(a,b)=1
+     * 就是求解x,为a的逆元
+     *扩展欧几里德算法：
+     * 基本算法：对于不完全为 0 的非负整数 a，b，gcd（a，b）表示 a，b 的最大公约数，必然存在整数对 x，y ，使得 ：
+     *
+     * gcd（a，b）=ax+by。
+     *
+     * 证明：设 a>b。
+     *
+     * 　　1，显然当 b=0，gcd（a，b）=a。此时 x=1，y=0；
+     *
+     * 　　2，ab!=0 时
+     *
+     * 　　设 ax1+by1=gcd(a,b);
+     *
+     * 　　bx2+(a mod b)y2=gcd(b,a mod b);
+     *
+     * 　　根据朴素的欧几里德原理有 gcd(a,b)=gcd(b,a mod b);
+     *
+     * 　　则:ax1+by1=bx2+(a mod b)y2;
+     *
+     * 　　即:ax1+by1=bx2+(a-(a/b)*b)y2=ay2+bx2-(a/b)*by2;
+     *
+     * 　　根据恒等定理得：x1=y2; y1=x2-(a/b)*y2;
+     *
+     *      这样我们就得到了求解 x1,y1 的方法：x1，y1 的值基于 x2，y2.
+     *
+     * 　  上面的思想是以递归定义的，因为 gcd 不断的递归求解一定会有个时候 b=0，所以递归可以结束。
      * @return
      */
-    public EllipticCurvePoint inverseMod(BigInteger k){
-        return null;
+    public BigInteger inverseMod(BigInteger k,BigInteger p) {
+        BigInteger a,b,x,y;
+        x=null;
+        y=null;
+        if(k.compareTo(p)<0){
+            a=p;
+            b=k;
+        }else{
+            a=k;
+            b=p;
+        }
+        extended_euclidean_algorithm(a,b,x,y);
+        return x;
     }
+    private void extended_euclidean_algorithm(BigInteger a,BigInteger b,BigInteger x,BigInteger y){
+        if(b.equals(BigInteger.valueOf(0L))){
+            x=BigInteger.valueOf(1L);
+            y=BigInteger.valueOf(0L);
+            return;
+        }
+        extended_euclidean_algorithm(b,a.mod(b),x,y);
+        BigInteger temp= x;
+        x=y;
+        y=temp.subtract(a.divide(b));
+
+    }
+
 
     /**
      * 点加
@@ -98,38 +156,38 @@ public class FpEllipticCurve extends EllipticCurve {
     public EllipticCurvePoint add(EllipticCurvePoint p, EllipticCurvePoint q) {
         check(p);
         check(q);
-        BigInteger m,x,y;
+        BigInteger m, x, y;
         /**
          * o+point=point;
          */
-        if(null == p){
+        if (null == p) {
             return q;
         }
-        if(null == q){
+        if (null == q) {
             return p;
         }
         /**
          * 如果点关于a,b关于x轴对称a+b=0
          */
-        if(p.getX().equals(q.getX())&&!p.getY().equals(q.getY())){
+        if (p.getX().equals(q.getX()) && !p.getY().equals(q.getY())) {
             return null;
         }
         /**
          * p == q
          */
-        if(p.getX().equals(q.getX())){
-            m=p.getX().multiply(p.getX()).multiply(BigInteger.valueOf(3L)).add(a)
+        if (p.getX().equals(q.getX())) {
+            m = p.getX().multiply(p.getX()).multiply(BigInteger.valueOf(3L)).add(a)
                     .divide(p.getY().multiply(p.getY()));
-        }else{
+        } else {
             /**
              * p != q
              */
-            m=q.getY().subtract(p.getY()).divide(q.getX().subtract(p.getX()));
+            m = q.getY().subtract(p.getY()).divide(q.getX().subtract(p.getX()));
         }
-        x=m.multiply(m).subtract(p.getX()).subtract(q.getX());
-        y=p.getY().add(m.multiply(x.subtract(p.getX())));
-        y=y.negate();
-        EllipticCurvePoint point = new EllipticCurvePoint(x,y);
+        x = m.multiply(m).subtract(p.getX()).subtract(q.getX());
+        y = p.getY().add(m.multiply(x.subtract(p.getX())));
+        y = y.negate();
+        EllipticCurvePoint point = new EllipticCurvePoint(x, y);
         check(point);
         return point;
     }
@@ -144,7 +202,7 @@ public class FpEllipticCurve extends EllipticCurve {
     public EllipticCurvePoint scalar_multi(BigInteger k, EllipticCurvePoint point) {
         return super.scalar_multi(k, point);
     }
-    
+
 
     public BigInteger getP() {
         return P;

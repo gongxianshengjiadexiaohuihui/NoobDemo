@@ -28,8 +28,8 @@ public class EllipticCurve {
     protected BigInteger b;
 
     public EllipticCurve(BigInteger a, BigInteger b) {
-        a = a;
-        b = b;
+        this.a = a;
+        this.b = b;
     }
 
     /**
