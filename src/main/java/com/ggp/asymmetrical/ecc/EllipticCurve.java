@@ -21,15 +21,15 @@ public class EllipticCurve {
     /**
      * 系数a
      */
-    private BigInteger a;
+    protected BigInteger a;
     /**
      * 系数b
      */
-    private BigInteger b;
+    protected BigInteger b;
 
     public EllipticCurve(BigInteger a, BigInteger b) {
-        this.a = a;
-        this.b = b;
+        a = a;
+        b = b;
     }
 
     /**
@@ -47,8 +47,8 @@ public class EllipticCurve {
         return point.getY().multiply(point.getY())
                 .compareTo(
                         point.getX().multiply(point.getX()).multiply(point.getX())
-                                .add(this.a.multiply(point.getX()))
-                                .add(this.b)
+                                .add(a.multiply(point.getX()))
+                                .add(b)
                 ) == 0;
     }
 
@@ -97,7 +97,7 @@ public class EllipticCurve {
          * p == q
          */
         if(p.getX().equals(q.getX())){
-            m=p.getX().multiply(p.getX()).multiply(BigInteger.valueOf(3L)).add(this.a)
+            m=p.getX().multiply(p.getX()).multiply(BigInteger.valueOf(3L)).add(a)
                     .divide(p.getY().multiply(p.getY()));
         }else{
             /**
@@ -152,7 +152,7 @@ public class EllipticCurve {
     }
 
     public void setA(BigInteger a) {
-        this.a = a;
+        a = a;
     }
 
     public BigInteger getB() {
@@ -160,6 +160,6 @@ public class EllipticCurve {
     }
 
     public void setB(BigInteger b) {
-        this.b = b;
+        b = b;
     }
 }
