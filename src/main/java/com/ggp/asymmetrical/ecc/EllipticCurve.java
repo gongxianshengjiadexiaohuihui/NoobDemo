@@ -32,6 +32,11 @@ public class EllipticCurve {
         this.b = b;
     }
 
+    /**
+     * 判断点是否在曲线上
+     * @param point
+     * @return
+     */
     public boolean onCurve(EllipticCurvePoint point) {
         /**
          * 定义null为无穷远点
@@ -46,11 +51,33 @@ public class EllipticCurve {
                                 .add(this.b)
                 ) == 0;
     }
-    public EllipticCurvePoint add(EllipticCurvePoint p,EllipticCurvePoint q){
-        BigInteger m,x,y;
-        if(!this.onCurve(p)||!this.onCurve(q)){
-            throw new RuntimeException("the point is not on curve");
+
+    /**
+     * 取点的相反点，椭圆曲线关于x轴对称
+     * @param point
+     * @return
+     */
+    public EllipticCurvePoint neg(EllipticCurvePoint point){
+        check(point);
+        if(null == point){
+            return null;
         }
+        EllipticCurvePoint neg = new EllipticCurvePoint(point.getX(), point.getY().negate());
+        check(neg);
+        return neg;
+
+    }
+
+    /**
+     * 点加
+     * @param p
+     * @param q
+     * @return
+     */
+    public EllipticCurvePoint add(EllipticCurvePoint p,EllipticCurvePoint q){
+        check(p);
+        check(q);
+        BigInteger m,x,y;
         /**
          * o+point=point;
          */
@@ -70,7 +97,7 @@ public class EllipticCurve {
          * p == q
          */
         if(p.getX().equals(q.getX())){
-            m=p.getX().multiply(p.getX()).multiply(BigInteger.valueOf(3L))
+            m=p.getX().multiply(p.getX()).multiply(BigInteger.valueOf(3L)).add(this.a)
                     .divide(p.getY().multiply(p.getY()));
         }else{
             /**
@@ -82,10 +109,43 @@ public class EllipticCurve {
         y=p.getY().add(m.multiply(x.subtract(p.getX())));
         y=y.negate();
         EllipticCurvePoint point = new EllipticCurvePoint(x,y);
-        if(!onCurve(point)){
-            throw new RuntimeException("the add result point is not on curve");
-        }
+        check(point);
         return point;
+    }
+
+
+    /**
+     * 求点的标量积(k倍点)
+     * @param k
+     * @param point
+     */
+    public EllipticCurvePoint scalar_multi(BigInteger k,EllipticCurvePoint point){
+        check(point);
+        if(k.equals(BigInteger.valueOf(0L))){
+            throw new IllegalArgumentException("the k can not is zero");
+        }
+        if(k.compareTo(BigInteger.valueOf(0L))<0){
+            return scalar_multi(k.negate(),neg(point));
+        }
+        /**
+         * 位乘
+         */
+        EllipticCurvePoint result = null;
+        EllipticCurvePoint append = point;
+        while(k.bitLength()>0){
+            if(k.and(BigInteger.valueOf(1L)).intValue()==1){
+                result = add(result,append);
+            }else{
+                append= add(append,append);
+            }
+            k=k.shiftRight(1);
+        }
+        return result;
+    }
+    protected void check(EllipticCurvePoint point) {
+        if(!onCurve(point)){
+            throw new RuntimeException("the  point is not on curve");
+        }
     }
     public BigInteger getA() {
         return a;

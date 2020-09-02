@@ -1,7 +1,6 @@
 package com.ggp.asymmetrical.ecc;
 
 import java.math.BigInteger;
-import java.util.HashMap;
 
 /**
  * @Author:ggp
@@ -51,5 +50,13 @@ public class EllipticCurvePoint {
 
     public void setY(BigInteger y) {
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "EllipticCurvePoint{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }
