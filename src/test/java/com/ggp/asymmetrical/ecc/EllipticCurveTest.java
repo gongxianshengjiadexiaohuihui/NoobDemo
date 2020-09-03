@@ -46,6 +46,8 @@ public class EllipticCurveTest {
     }
     @Test
     public void test_test(){
+        BigInteger x = BigInteger.valueOf(9L);
+        System.out.println(x.modInverse(BigInteger.valueOf(23L)));
         BigInteger i = new BigInteger("5");
         System.out.println(i.bitLength());
         System.out.println(i.and(BigInteger.valueOf(1L)));

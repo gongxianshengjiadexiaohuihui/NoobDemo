@@ -78,8 +78,24 @@ public class FpEllipticCurve extends EllipticCurve {
         return neg;
     }
 
-    public BigInteger inverseMod(BigInteger k){
-        return inverseMod(k,P);
+    public BigInteger multiplyInverse(BigInteger k){
+        return multiplyInverse(k,P);
+    }
+    public BigInteger addInverse(BigInteger k){
+        return addInverse(k,P);
+    }
+
+    /**
+     * 求加法逆元
+     * @param k
+     * @param p
+     * @return
+     */
+    public BigInteger addInverse(BigInteger k,BigInteger p){
+        if(k.compareTo(BigInteger.valueOf(0L))<0){
+            return p.subtract(k.abs());
+        }
+        return k;
     }
     /**
      * 求逆元，用于模的除法
@@ -117,31 +133,25 @@ public class FpEllipticCurve extends EllipticCurve {
      * 　  上面的思想是以递归定义的，因为 gcd 不断的递归求解一定会有个时候 b=0，所以递归可以结束。
      * @return
      */
-    public BigInteger inverseMod(BigInteger k,BigInteger p) {
-        BigInteger a,b,x,y;
-        x=null;
-        y=null;
-        if(k.compareTo(p)<0){
-            a=p;
-            b=k;
-        }else{
-            a=k;
-            b=p;
+    public BigInteger multiplyInverse(BigInteger k, BigInteger p) {
+        if(k.compareTo(BigInteger.valueOf(0L)) ==0){
+            throw new IllegalArgumentException("0 can not be division!");
         }
-        extended_euclidean_algorithm(a,b,x,y);
-        return x;
+        BigInteger[] result = extended_euclidean_algorithm(k,p);
+        return addInverse(result[0],p);
     }
-    private void extended_euclidean_algorithm(BigInteger a,BigInteger b,BigInteger x,BigInteger y){
+    private BigInteger[]  extended_euclidean_algorithm(BigInteger a,BigInteger b){
         if(b.equals(BigInteger.valueOf(0L))){
-            x=BigInteger.valueOf(1L);
-            y=BigInteger.valueOf(0L);
-            return;
+            BigInteger[] result = new BigInteger[2];
+            result[0]=BigInteger.valueOf(1L);
+            result[1]=BigInteger.valueOf(0L);
+            return result;
         }
-        extended_euclidean_algorithm(b,a.mod(b),x,y);
-        BigInteger temp= x;
-        x=y;
-        y=temp.subtract(a.divide(b));
-
+        BigInteger[] result=extended_euclidean_algorithm(b,a.mod(b));
+        BigInteger temp= result[0];
+        result[0]=result[1];
+        result[1]=temp.subtract(a.divide(b).multiply(result[1]));
+        return result;
     }
 
 

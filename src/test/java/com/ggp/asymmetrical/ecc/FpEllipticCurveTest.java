@@ -18,5 +18,13 @@ public class FpEllipticCurveTest {
         .valueOf(5L),BigInteger.valueOf(1L),G);
         Assert.assertTrue(curve.onCurve(G));
     }
-
+    @Test
+    public void test_inverse_mod(){
+        EllipticCurvePoint G = new EllipticCurvePoint(BigInteger.valueOf(3L),BigInteger.valueOf(6L));
+        FpEllipticCurve curve = new FpEllipticCurve(BigInteger.valueOf(2L),BigInteger.valueOf(3L),BigInteger.valueOf(97),BigInteger.valueOf(2L),BigInteger
+                .valueOf(5L),BigInteger.valueOf(1L),G);
+        BigInteger inverse1 = BigInteger.valueOf(31L).modInverse(BigInteger.valueOf(8L));
+        BigInteger inverse = curve.multiplyInverse(BigInteger.valueOf(31),BigInteger.valueOf(8));
+        Assert.assertEquals(inverse,inverse1);
+    }
 }
