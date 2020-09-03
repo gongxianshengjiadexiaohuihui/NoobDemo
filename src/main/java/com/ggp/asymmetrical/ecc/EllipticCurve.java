@@ -98,7 +98,7 @@ public class EllipticCurve {
          */
         if(p.getX().equals(q.getX())){
             m=p.getX().multiply(p.getX()).multiply(BigInteger.valueOf(3L)).add(a)
-                    .divide(p.getY().multiply(p.getY()));
+                    .divide(p.getY().multiply(BigInteger.valueOf(2L)));
         }else{
             /**
              * p != q

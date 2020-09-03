@@ -188,7 +188,7 @@ public class FpEllipticCurve extends EllipticCurve {
          */
         if (p.getX().equals(q.getX())) {
             m = p.getX().multiply(p.getX()).multiply(BigInteger.valueOf(3L)).add(a)
-                    .multiply(this.multiplyInverse(p.getY().multiply(p.getY())));
+                    .multiply(this.multiplyInverse(p.getY().multiply(BigInteger.valueOf(2L))));
         } else {
             /**
              * p != q
@@ -196,8 +196,8 @@ public class FpEllipticCurve extends EllipticCurve {
             m = q.getY().subtract(p.getY()).multiply(this.multiplyInverse(q.getX().subtract(p.getX())));
         }
         x = m.multiply(m).subtract(p.getX()).subtract(q.getX()).mod(P);
-        y = p.getY().add(m.multiply(x.subtract(p.getX()))).mod(P);
-        y = y.negate();
+        y = p.getY().add(m.multiply(x.subtract(p.getX())));
+        y = y.negate().mod(P);
         EllipticCurvePoint point = new EllipticCurvePoint(x, y);
         check(point);
         return point;
