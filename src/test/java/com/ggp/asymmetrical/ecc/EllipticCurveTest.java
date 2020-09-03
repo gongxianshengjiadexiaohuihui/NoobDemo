@@ -26,7 +26,8 @@ public class EllipticCurveTest {
         Assert.assertEquals(p,curve.pointAdd(p,null));
         Assert.assertEquals(p,curve.pointAdd(null,p));
         EllipticCurvePoint q = new EllipticCurvePoint(BigInteger.valueOf(3L),BigInteger.valueOf(4L));
-        System.out.println(curve.pointAdd(p,q));
+        EllipticCurvePoint expect = new EllipticCurvePoint(BigInteger.valueOf(-3L),BigInteger.valueOf(2L));
+        Assert.assertEquals(expect,curve.pointAdd(p,q));
 
     }
     @Test
@@ -42,18 +43,17 @@ public class EllipticCurveTest {
         EllipticCurve curve = new EllipticCurve(BigInteger.valueOf(-7L),BigInteger.valueOf(10L));
         EllipticCurvePoint p = new EllipticCurvePoint(BigInteger.valueOf(1L),BigInteger.valueOf(2L));
         EllipticCurvePoint p2 = new EllipticCurvePoint(BigInteger.valueOf(-1L),BigInteger.valueOf(-4L));
-        System.out.println(curve.scalar_multi(BigInteger.valueOf(2),p));
+        Assert.assertEquals(p2,curve.scalar_multi(BigInteger.valueOf(2),p));
     }
     @Test
-    public void test_test(){
-        BigInteger x = BigInteger.valueOf(9L);
-        System.out.println(x.modInverse(BigInteger.valueOf(23L)));
-        BigInteger i = new BigInteger("5");
-        System.out.println(i.bitLength());
-        System.out.println(i.and(BigInteger.valueOf(1L)));
-        i=i.shiftRight(1);
-        System.out.println(i.bitLength());
-        System.out.println(i.bitCount());
-        System.out.println(i.and(BigInteger.valueOf(1L)));
+    public void test(){
+        BigInteger bigInteger = BigInteger.valueOf(6);
+        System.out.println(bigInteger.bitLength());
+        bigInteger =bigInteger.shiftRight(1);
+        System.out.println(bigInteger.bitLength());
+        bigInteger =bigInteger.shiftRight(1);
+        System.out.println(bigInteger.bitLength());
+        bigInteger =bigInteger.shiftRight(1);
+        System.out.println(bigInteger.bitLength());
     }
 }

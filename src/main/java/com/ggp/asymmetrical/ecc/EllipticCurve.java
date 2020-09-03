@@ -122,7 +122,7 @@ public class EllipticCurve {
     public EllipticCurvePoint scalar_multi(BigInteger k,EllipticCurvePoint point){
         check(point);
         if(k.equals(BigInteger.valueOf(0L))){
-            throw new IllegalArgumentException("the k can not is zero");
+            return null;
         }
         if(k.compareTo(BigInteger.valueOf(0L))<0){
             return scalar_multi(k.negate(),neg(point));
@@ -135,9 +135,8 @@ public class EllipticCurve {
         while(k.bitLength()>0){
             if(k.and(BigInteger.valueOf(1L)).intValue()==1){
                 result = pointAdd(result,append);
-            }else{
-                append= pointAdd(append,append);
             }
+            append= pointAdd(append,append);
             k=k.shiftRight(1);
         }
         return result;

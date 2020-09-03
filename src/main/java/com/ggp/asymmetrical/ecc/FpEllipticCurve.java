@@ -138,6 +138,12 @@ public class FpEllipticCurve extends EllipticCurve {
         if(k.compareTo(BigInteger.valueOf(0L)) ==0){
             throw new IllegalArgumentException("0 can not be division!");
         }
+        /**
+         *   k ** -1 = p - (-k) ** -1  (mod p)
+         */
+        if(k.compareTo(BigInteger.valueOf(0L)) < 0){
+            return p.subtract(this.multiplyInverse(k.negate(),p));
+        }
         BigInteger[] result = extended_euclidean_algorithm(k,p);
         return addInverse(result[0],p);
     }
@@ -202,18 +208,34 @@ public class FpEllipticCurve extends EllipticCurve {
         check(point);
         return point;
     }
-
     /**
      * 求点的标量积(k倍点)
-     *
      * @param k
      * @param point
      */
     @Override
-    public EllipticCurvePoint scalar_multi(BigInteger k, EllipticCurvePoint point) {
-        return super.scalar_multi(k, point);
+    public EllipticCurvePoint scalar_multi(BigInteger k,EllipticCurvePoint point){
+        check(point);
+        if(k.mod(P).equals(BigInteger.valueOf(0L))){
+            return null;
+        }
+        if(k.compareTo(BigInteger.valueOf(0L))<0){
+            return scalar_multi(k.negate(),neg(point));
+        }
+        /**
+         * 位乘
+         */
+        EllipticCurvePoint result = null;
+        EllipticCurvePoint append = point;
+        while(k.bitLength()>0){
+            if(k.and(BigInteger.valueOf(1L)).intValue()==1){
+                result = pointAdd(result,append);
+            }
+            append= pointAdd(append,append);
+            k=k.shiftRight(1);
+        }
+        return result;
     }
-
 
     public BigInteger getP() {
         return P;
