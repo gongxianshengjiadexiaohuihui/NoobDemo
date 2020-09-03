@@ -27,4 +27,14 @@ public class FpEllipticCurveTest {
         BigInteger inverse = curve.multiplyInverse(BigInteger.valueOf(31),BigInteger.valueOf(8));
         Assert.assertEquals(inverse,inverse1);
     }
+    @Test
+    public void test_point_add(){
+        EllipticCurvePoint G = new EllipticCurvePoint(BigInteger.valueOf(3L),BigInteger.valueOf(6L));
+        FpEllipticCurve curve = new FpEllipticCurve(BigInteger.valueOf(1L),BigInteger.valueOf(1L),BigInteger.valueOf(23),BigInteger.valueOf(2L),BigInteger
+                .valueOf(23L),BigInteger.valueOf(1L),G);
+        EllipticCurvePoint p = new EllipticCurvePoint(BigInteger.valueOf(3L),BigInteger.valueOf(10L));
+        EllipticCurvePoint q = new EllipticCurvePoint(BigInteger.valueOf(9L),BigInteger.valueOf(7L));
+        EllipticCurvePoint result = curve.pointAdd(p,q);
+        System.out.println(result);
+    }
 }

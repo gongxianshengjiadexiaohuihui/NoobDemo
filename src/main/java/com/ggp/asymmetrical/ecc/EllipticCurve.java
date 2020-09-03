@@ -74,7 +74,7 @@ public class EllipticCurve {
      * @param q
      * @return
      */
-    public EllipticCurvePoint add(EllipticCurvePoint p,EllipticCurvePoint q){
+    public EllipticCurvePoint pointAdd(EllipticCurvePoint p, EllipticCurvePoint q){
         check(p);
         check(q);
         BigInteger m,x,y;
@@ -134,9 +134,9 @@ public class EllipticCurve {
         EllipticCurvePoint append = point;
         while(k.bitLength()>0){
             if(k.and(BigInteger.valueOf(1L)).intValue()==1){
-                result = add(result,append);
+                result = pointAdd(result,append);
             }else{
-                append= add(append,append);
+                append= pointAdd(append,append);
             }
             k=k.shiftRight(1);
         }

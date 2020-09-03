@@ -23,10 +23,10 @@ public class EllipticCurveTest {
     public void test_point_add(){
         EllipticCurve curve = new EllipticCurve(BigInteger.valueOf(-7L),BigInteger.valueOf(10L));
         EllipticCurvePoint p = new EllipticCurvePoint(BigInteger.valueOf(1L),BigInteger.valueOf(2L));
-        Assert.assertEquals(p,curve.add(p,null));
-        Assert.assertEquals(p,curve.add(null,p));
+        Assert.assertEquals(p,curve.pointAdd(p,null));
+        Assert.assertEquals(p,curve.pointAdd(null,p));
         EllipticCurvePoint q = new EllipticCurvePoint(BigInteger.valueOf(3L),BigInteger.valueOf(4L));
-        System.out.println(curve.add(p,q));
+        System.out.println(curve.pointAdd(p,q));
 
     }
     @Test
