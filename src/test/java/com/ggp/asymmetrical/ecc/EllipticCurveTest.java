@@ -45,15 +45,4 @@ public class EllipticCurveTest {
         EllipticCurvePoint p2 = new EllipticCurvePoint(BigInteger.valueOf(-1L),BigInteger.valueOf(-4L));
         Assert.assertEquals(p2,curve.scalar_multi(BigInteger.valueOf(2),p));
     }
-    @Test
-    public void test(){
-        BigInteger bigInteger = BigInteger.valueOf(6);
-        System.out.println(bigInteger.bitLength());
-        bigInteger =bigInteger.shiftRight(1);
-        System.out.println(bigInteger.bitLength());
-        bigInteger =bigInteger.shiftRight(1);
-        System.out.println(bigInteger.bitLength());
-        bigInteger =bigInteger.shiftRight(1);
-        System.out.println(bigInteger.bitLength());
-    }
 }

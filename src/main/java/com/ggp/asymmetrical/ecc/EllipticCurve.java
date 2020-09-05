@@ -136,8 +136,11 @@ public class EllipticCurve {
             if(k.and(BigInteger.valueOf(1L)).intValue()==1){
                 result = pointAdd(result,append);
             }
-            append= pointAdd(append,append);
             k=k.shiftRight(1);
+            if(k.bitLength() == 0){
+                break;
+            }
+            append= pointAdd(append,append);
         }
         return result;
     }
