@@ -32,6 +32,14 @@ public class SM2Curve {
 
     /**
      * 生成密钥对
+     * @param k
+     * @return
+     */
+    public static ECKeyPair generateKeyPair(BigInteger k){
+        return curve.generateKeyPair(k);
+    }
+    /**
+     * 生成密钥对
      * @param random
      * @return
      */

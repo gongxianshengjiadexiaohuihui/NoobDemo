@@ -10,6 +10,10 @@ public class ECPublicKey {
         this.x=point.getX();
         this.y=point.getY();
     }
+    public ECPublicKey(BigInteger x,BigInteger y){
+        this.x = x;
+        this.y = y;
+    }
     public BigInteger getX() {
         return x;
     }
@@ -33,4 +37,14 @@ public class ECPublicKey {
                 ", y=" + y +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ECPublicKey publicKey = (ECPublicKey) o;
+        return x.equals(publicKey.x) &&
+                y.equals(publicKey.y);
+    }
+
 }

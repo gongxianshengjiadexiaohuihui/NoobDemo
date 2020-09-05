@@ -1,6 +1,7 @@
 package com.ggp.asymmetrical.ecc;
 
 import java.math.BigInteger;
+import java.util.Objects;
 
 public class ECPrivateKey {
     private BigInteger x;
@@ -44,4 +45,15 @@ public class ECPrivateKey {
                 ", k=" + k +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ECPrivateKey that = (ECPrivateKey) o;
+        return x.equals(that.x) &&
+                y.equals(that.y) &&
+                k.equals(that.k);
+    }
+
 }
