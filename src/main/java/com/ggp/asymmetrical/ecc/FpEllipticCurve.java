@@ -14,10 +14,6 @@ public class FpEllipticCurve extends EllipticCurve {
      */
     private BigInteger P;
     /**
-     * 有限域Fp的阶
-     */
-    private BigInteger N;
-    /**
      * Fp子群的阶
      */
     private BigInteger n;
@@ -30,10 +26,9 @@ public class FpEllipticCurve extends EllipticCurve {
      */
     private EllipticCurvePoint G;
 
-    public FpEllipticCurve(BigInteger a, BigInteger b, BigInteger P, BigInteger N, BigInteger n, BigInteger h, EllipticCurvePoint G) {
+    public FpEllipticCurve(BigInteger a, BigInteger b, BigInteger P, BigInteger n, BigInteger h, EllipticCurvePoint G) {
         super(a, b);
         this.P = P;
-        this.N = N;
         this.n = n;
         this.h = h;
         this.G = G;
@@ -236,21 +231,18 @@ public class FpEllipticCurve extends EllipticCurve {
         }
         return result;
     }
-
+    public ECKeyPair generateKeyPair(BigInteger k){
+        EllipticCurvePoint point = this.scalar_multi(k,G);
+        ECPublicKey publicKey = new ECPublicKey(point);
+        ECPrivateKey privateKey = new ECPrivateKey(point,k);
+        return new ECKeyPair(publicKey,privateKey);
+    }
     public BigInteger getP() {
         return P;
     }
 
     public void setP(BigInteger p) {
         P = p;
-    }
-
-    public BigInteger getN() {
-        return N;
-    }
-
-    public void setN(BigInteger n) {
-        N = n;
     }
 
     public BigInteger getH() {
@@ -269,11 +261,18 @@ public class FpEllipticCurve extends EllipticCurve {
         G = g;
     }
 
+    public BigInteger getN() {
+        return n;
+    }
+
+    public void setN(BigInteger n) {
+        this.n = n;
+    }
+
     @Override
     public String toString() {
         return "FpEllipticCurve{" +
                 "P=" + P +
-                ", N=" + N +
                 ", n=" + n +
                 ", h=" + h +
                 ", G=" + G +
