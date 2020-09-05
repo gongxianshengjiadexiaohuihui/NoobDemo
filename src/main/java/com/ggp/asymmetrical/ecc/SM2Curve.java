@@ -3,6 +3,10 @@ package com.ggp.asymmetrical.ecc;
 import java.math.BigInteger;
 import java.util.Random;
 
+
+/**
+ * SM2非压缩公钥格式字节串长度为65字节，压缩格式长度为33字节，若公钥y坐标最后一位为0，则首字节为0x02，否则为0x03。非压缩格式公钥首字节为0x04。
+ */
 public class SM2Curve {
     /**
      * 密钥长度

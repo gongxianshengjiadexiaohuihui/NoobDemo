@@ -29,7 +29,9 @@ public class ECPublicKey {
     public void setY(BigInteger y) {
         this.y = y;
     }
-
+    public EllipticCurvePoint toPoint(){
+        return new EllipticCurvePoint(x,y);
+    }
     @Override
     public String toString() {
         return "ECPublicKey{" +
