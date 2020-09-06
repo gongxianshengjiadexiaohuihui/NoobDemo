@@ -25,22 +25,32 @@ public class ByteUtil {
      */
     public static void printBits(byte[] bytes) {
         Map<Integer, String> cache = new HashMap<>();
-        StringBuilder builder = new StringBuilder("");
-        byte b;
+        char[] chars = new char[8];
+        int b;
         for (int i = 0; i < bytes.length; i++) {
             if (i % 8 == 0) {
                 System.out.println("\n");
             }
             b = bytes[i];
+            int k = bytes[i];
+            /**
+             * 先判断缓存里有没有
+             */
             if (null != cache.get(Integer.valueOf(b))) {
                 System.out.print(cache.get(Integer.valueOf(b)));
                 System.out.print(" ");
                 continue;
             }
+            /**
+             * 缓存里没有就拼装
+             */
             for (int j = 0; j <8 ; j++) {
-                builder
+                chars[7-j] = (char) (b&1+48);
+                b=b>>>1;
             }
-
+            cache.put(Integer.valueOf(k),new String(chars));
+            System.out.print(new String(chars));
+            System.out.print(" ");
         }
     }
 }
