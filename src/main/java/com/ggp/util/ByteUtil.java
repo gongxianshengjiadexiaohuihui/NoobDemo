@@ -59,7 +59,7 @@ public class ByteUtil {
         try {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             for (int i = 0; i <ints.length ; i++) {
-                os.write(int2Bytes(i));
+                os.write(int2Bytes(ints[i]));
             }
             return os.toByteArray();
         } catch (IOException e) {

@@ -85,7 +85,7 @@ public class SM3Hash {
      * @return
      */
     private int rotateLeft(int i, int bit) {
-        return (i >>> (32 - bit)) | (i << bit);
+        return (i >>> (32-bit)) | (i << bit);
     }
 
     /**
@@ -153,7 +153,7 @@ public class SM3Hash {
      * 计算过程
      * ABCDEFGH = V< i >
      * FOR  j=0  TO  63
-     * SSl=((A+<12)+E+(T[j]<<<(j mod 32)))<<<7
+     * SSl=((A+<12)+E+(T[j]<<<j))<<<7
      * SS2=SSl^(A<<<12)
      * TTl=FF[j](A，B，C) + D + SS2 + W'[j];
      * TT2=GG[j](E, F, G) + H + SS1 + W[j];
@@ -188,7 +188,7 @@ public class SM3Hash {
         G = ByteUtil.bytes2Int(Arrays.copyOfRange(VI, 24, 28));
         H = ByteUtil.bytes2Int(Arrays.copyOfRange(VI, 28, 32));
         for (int j = 0; j < 64; j++) {
-            SS1 = rotateLeft(A, 12) + E + rotateLeft(rotateLeft(T(j), j % 32), 7);
+            SS1 = rotateLeft((rotateLeft(A, 12) + E + rotateLeft(T(j), j)), 7);
             SS2 = SS1 ^ rotateLeft(A, 12);
             TT1 = FF(A, B, C, j) + D + SS2 + W_[j];
             TT2 = GG(E, F, G, j) + H + SS1 + W[j];
@@ -201,6 +201,8 @@ public class SM3Hash {
             F = E;
             E = P0(TT2);
         }
+        ByteUtil.print(ByteUtil.intArray2bytes(new int[]{A, B, C, D, E, F, G, H}),16);
+        System.out.println("\n-----------------------------------");
         byte[] v = ByteUtil.intArray2bytes(new int[]{A, B, C, D, E, F, G, H});
         for (int i = 0; i < v.length; i++) {
             v[i] = (byte) (v[i] ^ VI[i]);
