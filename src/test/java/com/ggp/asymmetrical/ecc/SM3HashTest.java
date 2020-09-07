@@ -4,22 +4,23 @@ package com.ggp.asymmetrical.ecc;
 import com.ggp.util.ByteUtil;
 import org.junit.Test;
 
-import java.math.BigInteger;
-
 public class SM3HashTest {
     @Test
     public void test_padding() throws Exception{
-        BigInteger m = new BigInteger("011000010110001001100011",2);
         SM3Hash sm3Hash = new SM3Hash();
-        byte[] result = sm3Hash.padding(m.toByteArray());
-        ByteUtil.printBits(m.toByteArray());
-        System.out.println("result");
-        ByteUtil.printBits(result);
+        byte[] result = sm3Hash.padding("abc".getBytes());
+        ByteUtil.print(result,16);
     }
     @Test
-    public void test(){
-        byte[] bytes = new byte[1];
-        bytes[0] =(byte)0x11;
-        ByteUtil.printBits(bytes);
+    public void test_extend() throws Exception{
+        SM3Hash sm3Hash = new SM3Hash();
+        byte[] result = sm3Hash.padding("abc".getBytes());
+        int[] W = new int[68];
+        int[] W_= new int[64];
+        sm3Hash.messageExtend(W,W_,result);
+        ByteUtil.print(ByteUtil.intArray2bytes(W),16);
+        System.out.println("\n----------------");
+        ByteUtil.print(ByteUtil.intArray2bytes(W_),16);
     }
+
 }
