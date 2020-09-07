@@ -22,5 +22,12 @@ public class SM3HashTest {
         System.out.println("\n----------------");
         ByteUtil.print(ByteUtil.intArray2bytes(W_),16);
     }
+    @Test
+    public void test_compression() throws Exception{
+        SM3Hash sm3Hash = new SM3Hash();
+        byte[] result = sm3Hash.padding("abc".getBytes());
+        byte[] hash = sm3Hash.iterativeCompression(result);
+        ByteUtil.print(hash,16);
+    }
 
 }

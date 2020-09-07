@@ -1,5 +1,7 @@
 package com.ggp.util;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,11 +56,16 @@ public class ByteUtil {
      * @return
      */
     public static byte[] intArray2bytes(int[] ints){
-        byte[] bytes = new byte[ints.length * 4];
-        for (int i = 0; i <ints.length ; i++) {
-            System.arraycopy(int2Bytes(ints[i]),0,bytes,i*4,4);
+        try {
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            for (int i = 0; i <ints.length ; i++) {
+                os.write(int2Bytes(i));
+            }
+            return os.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return bytes;
+        return null;
     }
 
 
