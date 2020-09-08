@@ -25,8 +25,21 @@ public class SM2CurveTest {
     public void test_ECDH(){
         ECKeyPair Alice = SM2Curve.generateKeyPair();
         ECKeyPair Bob = SM2Curve.generateKeyPair();
-        EllipticCurvePoint AliceShare = SM2Curve.curve.scalar_multi(Alice.getPrivateKey().getK(),Bob.getPublicKey().toPoint());
-        EllipticCurvePoint BobShare = SM2Curve.curve.scalar_multi(Bob.getPrivateKey().getK(),Alice.getPublicKey().toPoint());
+        EllipticCurvePoint AliceShare = SM2Curve.curve.scalar_multi(Alice.getPrivateKey().getK(),Bob.getPublicKey().getPoint());
+        EllipticCurvePoint BobShare = SM2Curve.curve.scalar_multi(Bob.getPrivateKey().getK(),Alice.getPublicKey().getPoint());
         Assert.assertEquals(AliceShare,BobShare);
+    }
+    @Test
+    public void test_encrypt_decrypt()throws Exception{
+        ECKeyPair keyPair = SM2Curve.generateKeyPair();
+        String  src = "test";
+        byte[] cipher = SM2Curve.encrypt(src.getBytes(),keyPair.getPublicKey());
+        byte[] plain = SM2Curve.decrypt(cipher,keyPair.getPrivateKey());
+        System.out.println(new String(plain));
+    }
+    @Test
+    public void test(){
+        BigInteger b = BigInteger.valueOf(7788);
+        System.out.println(new BigInteger(b.toByteArray()));
     }
 }

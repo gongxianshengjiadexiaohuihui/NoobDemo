@@ -87,6 +87,20 @@ public class ByteUtil {
     }
 
     /**
+     * 判读是否全是0
+     * @param bytes
+     * @return
+     */
+    public static boolean isAllZero(byte[] bytes){
+        for (byte b:bytes){
+            if((b&0xFF)!= 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * 打印字节数组的二进制或16进制显示
      *
      * @param bytes

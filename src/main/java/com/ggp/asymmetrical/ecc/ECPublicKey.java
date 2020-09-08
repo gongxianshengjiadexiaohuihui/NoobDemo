@@ -5,14 +5,17 @@ import java.math.BigInteger;
 public class ECPublicKey {
     private BigInteger x;
     private BigInteger y;
+    private EllipticCurvePoint point;
 
     public ECPublicKey(EllipticCurvePoint point){
         this.x=point.getX();
         this.y=point.getY();
+        this.point = point;
     }
     public ECPublicKey(BigInteger x,BigInteger y){
         this.x = x;
         this.y = y;
+        this.point = new EllipticCurvePoint(x,y);
     }
     public BigInteger getX() {
         return x;
@@ -29,9 +32,15 @@ public class ECPublicKey {
     public void setY(BigInteger y) {
         this.y = y;
     }
-    public EllipticCurvePoint toPoint(){
-        return new EllipticCurvePoint(x,y);
+
+    public EllipticCurvePoint getPoint() {
+        return point;
     }
+
+    public void setPoint(EllipticCurvePoint point) {
+        this.point = point;
+    }
+
     @Override
     public String toString() {
         return "ECPublicKey{" +

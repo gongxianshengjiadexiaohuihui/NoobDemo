@@ -1,6 +1,9 @@
 package com.ggp.asymmetrical.ecc;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.math.BigInteger;
+import java.util.Arrays;
 
 /**
  * @Author:ggp
@@ -17,11 +20,29 @@ public class EllipticCurvePoint {
      */
     private BigInteger y;
 
+    /**
+     * 点格式
+     * 0表示不压缩形式表示
+     * 1表示压缩形式表示
+     * 2表示混合表示形式
+     */
+    private int format = 0;
+
     public EllipticCurvePoint(BigInteger x, BigInteger y) {
         this.x = x;
         this.y = y;
     }
-
+    public EllipticCurvePoint(byte[] bytes){
+        if(bytes.length != 65){
+            throw new RuntimeException("the length is not 65!");
+        }
+        byte[] flag = Arrays.copyOfRange(bytes,0,1);
+        if(flag[0] == 0x04 ) {
+            this.x = new BigInteger(Arrays.copyOfRange(bytes, 1, 33));
+            this.y = new BigInteger(Arrays.copyOfRange(bytes, 33, 65));
+        }
+        //todo 压缩和混合
+    }
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof EllipticCurvePoint){
@@ -34,6 +55,21 @@ public class EllipticCurvePoint {
         }else {
             return false;
         }
+    }
+
+    public byte[] getBytes(){
+        try {
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            if(format == 0){
+                os.write(0X04);
+                os.write(x.toByteArray());
+                os.write(y.toByteArray());
+            }
+            return os.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public BigInteger getX() {
@@ -50,6 +86,14 @@ public class EllipticCurvePoint {
 
     public void setY(BigInteger y) {
         this.y = y;
+    }
+
+    public int getFormat() {
+        return format;
+    }
+
+    public void setFormat(int format) {
+        this.format = format;
     }
 
     @Override
