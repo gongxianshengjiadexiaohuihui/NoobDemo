@@ -1,5 +1,7 @@
 package com.ggp.asymmetrical.ecc;
 
+import com.ggp.util.ByteUtil;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -11,6 +13,7 @@ import java.util.Arrays;
  * @Description:
  */
 public class EllipticCurvePoint {
+    private static final byte[] ZERO = new byte[]{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
     /**
      * 点的横坐标
      */
@@ -33,11 +36,12 @@ public class EllipticCurvePoint {
         this.y = y;
     }
     public EllipticCurvePoint(byte[] bytes){
-        if(bytes.length != 65){
-            throw new RuntimeException("the length is not 65!");
-        }
+
         byte[] flag = Arrays.copyOfRange(bytes,0,1);
         if(flag[0] == 0x04 ) {
+            if(bytes.length != 65){
+                throw new RuntimeException("the length is not 65!");
+            }
             this.x = new BigInteger(Arrays.copyOfRange(bytes, 1, 33));
             this.y = new BigInteger(Arrays.copyOfRange(bytes, 33, 65));
         }
@@ -62,8 +66,8 @@ public class EllipticCurvePoint {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             if(format == 0){
                 os.write(0X04);
-                os.write(x.toByteArray());
-                os.write(y.toByteArray());
+                os.write(ByteUtil.paddingOrDeleteZero(x.toByteArray(),32));
+                os.write(ByteUtil.paddingOrDeleteZero(y.toByteArray(),32));
             }
             return os.toByteArray();
         } catch (IOException e) {

@@ -38,7 +38,7 @@ public class KDFFunction {
          */
         if (klen / v == 0) {
             Ha = SM3Hash.hash(ByteUtil.bytesArray2bytes(Z, ByteUtil.int2Bytes(ct)));
-            K.write(Arrays.copyOfRange(Ha, 0, klen/8));
+            K.write(Arrays.copyOfRange(Ha, 0, (klen - (v * (klen / v))/8)));
         } else {
             for (int i = 1; i <= klen / v; i++) {
                 Ha = SM3Hash.hash(ByteUtil.bytesArray2bytes(Z, ByteUtil.int2Bytes(ct)));

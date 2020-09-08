@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigInteger;
+import java.security.spec.ECPoint;
 
 public class SM2CurveTest {
     @Test
@@ -35,11 +36,13 @@ public class SM2CurveTest {
         String  src = "test";
         byte[] cipher = SM2Curve.encrypt(src.getBytes(),keyPair.getPublicKey());
         byte[] plain = SM2Curve.decrypt(cipher,keyPair.getPrivateKey());
-        System.out.println(new String(plain));
+        Assert.assertEquals(src,new String(plain));
     }
     @Test
     public void test(){
-        BigInteger b = BigInteger.valueOf(7788);
-        System.out.println(new BigInteger(b.toByteArray()));
+        System.out.println(SM2Curve.p.bitLength());
+        ECKeyPair keyPair = SM2Curve.generateKeyPair();
+        System.out.println(keyPair.getPublicKey().getPoint());
+        System.out.println(new EllipticCurvePoint(keyPair.getPublicKey().getPoint().getBytes()));
     }
 }
