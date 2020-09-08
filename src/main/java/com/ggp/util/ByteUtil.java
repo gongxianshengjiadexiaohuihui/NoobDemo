@@ -68,6 +68,23 @@ public class ByteUtil {
         return null;
     }
 
+    /**
+     * 多个字节数组转一个字节数组
+     * @param bytes
+     * @return
+     */
+    public static byte[] bytesArray2bytes( byte[]... bytes){
+        try {
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            for (byte[] byteArray : bytes) {
+                os.write(byteArray);
+            }
+            return os.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /**
      * 打印字节数组的二进制或16进制显示

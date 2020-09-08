@@ -9,6 +9,10 @@ import java.util.Arrays;
 
 public class SM3Hash {
     /**
+     * 输出杂凑值的bit长度
+     */
+    public static final int OUT_LENGTH=256;
+    /**
      * 1000 0000
      */
     private static final byte FIRST_PADDING = (byte) 0x80;
