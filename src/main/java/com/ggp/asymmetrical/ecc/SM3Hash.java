@@ -32,7 +32,7 @@ public class SM3Hash {
      * @param j
      * @return
      */
-    public int T(int j) {
+    private static int T(int j) {
         if (j >= 0 && j <= 15) {
             return Integer.valueOf("79CC4519", 16).intValue();
         } else if (j >= 16 && j <= 63) {
@@ -45,7 +45,7 @@ public class SM3Hash {
     /**
      * 布尔函数
      */
-    public int FF(int X, int Y, int Z, int j) {
+    private static int FF(int X, int Y, int Z, int j) {
         if (j >= 0 && j <= 15) {
             return X ^ Y ^ Z;
         } else if (j >= 16 && j <= 63) {
@@ -55,7 +55,7 @@ public class SM3Hash {
         }
     }
 
-    public int GG(int X, int Y, int Z, int j) {
+    private static int GG(int X, int Y, int Z, int j) {
         if (j >= 0 && j <= 15) {
             return X ^ Y ^ Z;
         } else if (j >= 16 && j <= 63) {
@@ -68,11 +68,11 @@ public class SM3Hash {
     /**
      * 置换函数
      */
-    private int P0(int x) {
+    private static int P0(int x) {
         return x ^ (rotateLeft(x, 9)) ^ (rotateLeft(x, 17));
     }
 
-    private int P1(int x) {
+    private static int P1(int x) {
         return x ^ (rotateLeft(x, 15)) ^ (rotateLeft(x, 23));
     }
 
@@ -84,8 +84,12 @@ public class SM3Hash {
      * @param bit
      * @return
      */
-    private int rotateLeft(int i, int bit) {
+    private static int rotateLeft(int i, int bit) {
         return (i >>> (32-bit)) | (i << bit);
+    }
+
+    public static byte[] hash(byte[] src) throws IOException{
+        return iterativeCompression(padding(src));
     }
 
     /**
@@ -96,7 +100,7 @@ public class SM3Hash {
      * @param src
      * @return
      */
-    public byte[] padding(byte[] src) throws IOException {
+    public static byte[] padding(byte[] src) throws IOException {
         if (src.length > 0x2000000000000000L) {
             throw new IllegalArgumentException("填充长度必须小于2^64 bit");
         }
@@ -134,7 +138,7 @@ public class SM3Hash {
      * @param src
      * @return
      */
-    public byte[] iterativeCompression(byte[] src) {
+    public static byte[] iterativeCompression(byte[] src) {
         int n = src.length / 64;
         int[] W = new int[68];
         int[] W_ = new int[64];
@@ -176,8 +180,8 @@ public class SM3Hash {
      * @param BI
      * @return
      */
-    public byte[] CF(int[] W, int[] W_, byte[] VI, byte[] BI) {
-        this.messageExtend(W, W_, BI);
+    public static byte[] CF(int[] W, int[] W_, byte[] VI, byte[] BI) {
+        messageExtend(W, W_, BI);
         int A, B, C, D, E, F, G, H, SS1, SS2, TT1, TT2;
         A = ByteUtil.bytes2Int(Arrays.copyOfRange(VI, 0, 4));
         B = ByteUtil.bytes2Int(Arrays.copyOfRange(VI, 4, 8));
@@ -201,8 +205,6 @@ public class SM3Hash {
             F = E;
             E = P0(TT2);
         }
-        ByteUtil.print(ByteUtil.intArray2bytes(new int[]{A, B, C, D, E, F, G, H}),16);
-        System.out.println("\n-----------------------------------");
         byte[] v = ByteUtil.intArray2bytes(new int[]{A, B, C, D, E, F, G, H});
         for (int i = 0; i < v.length; i++) {
             v[i] = (byte) (v[i] ^ VI[i]);
@@ -228,7 +230,7 @@ public class SM3Hash {
      * @param W_
      * @param B
      */
-    public void messageExtend(int[] W, int[] W_, byte[] B) {
+    public static void messageExtend(int[] W, int[] W_, byte[] B) {
         for (int i = 0; i < 16; i++) {
             W[i] = ByteUtil.bytes2Int(Arrays.copyOfRange(B, i * 4, (i + 1) * 4));
         }
