@@ -6,11 +6,13 @@ import java.util.Objects;
 public class ECPrivateKey {
     private BigInteger x;
     private BigInteger y;
+    private EllipticCurvePoint point;
     private BigInteger k;
 
     public ECPrivateKey(EllipticCurvePoint point,BigInteger k){
         this.x = point.getX();
         this.y = point.getY();
+        this.point = point;
         this.k = k;
     }
     public BigInteger getX() {
@@ -35,6 +37,14 @@ public class ECPrivateKey {
 
     public void setK(BigInteger k) {
         this.k = k;
+    }
+
+    public EllipticCurvePoint getPoint() {
+        return point;
+    }
+
+    public void setPoint(EllipticCurvePoint point) {
+        this.point = point;
     }
 
     @Override
