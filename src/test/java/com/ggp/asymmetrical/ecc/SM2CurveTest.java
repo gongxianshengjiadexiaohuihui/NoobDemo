@@ -40,7 +40,6 @@ public class SM2CurveTest {
     }
     @Test
     public void test(){
-        System.out.println(SM2Curve.p.bitLength());
         ECKeyPair keyPair = SM2Curve.generateKeyPair();
         System.out.println(keyPair.getPublicKey().getPoint());
         System.out.println(new EllipticCurvePoint(keyPair.getPublicKey().getPoint().getBytes()));

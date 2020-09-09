@@ -42,8 +42,8 @@ public class EllipticCurvePoint {
             if(bytes.length != 65){
                 throw new RuntimeException("the length is not 65!");
             }
-            this.x = new BigInteger(Arrays.copyOfRange(bytes, 1, 33));
-            this.y = new BigInteger(Arrays.copyOfRange(bytes, 33, 65));
+            this.x = new BigInteger(1,Arrays.copyOfRange(bytes, 1, 33));
+            this.y = new BigInteger(1,Arrays.copyOfRange(bytes, 33, 65));
         }
         //todo 压缩和混合
     }
@@ -66,8 +66,8 @@ public class EllipticCurvePoint {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             if(format == 0){
                 os.write(0X04);
-                os.write(ByteUtil.paddingOrDeleteZero(x.toByteArray(),32));
-                os.write(ByteUtil.paddingOrDeleteZero(y.toByteArray(),32));
+                os.write(ByteUtil.toUnsigned(x));
+                os.write(ByteUtil.toUnsigned(y));
             }
             return os.toByteArray();
         } catch (IOException e) {

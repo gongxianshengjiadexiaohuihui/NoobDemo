@@ -2,6 +2,7 @@ package com.ggp.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,18 +56,10 @@ public class ByteUtil {
      * 填充0或者去掉前面多余的0
      * @return
      */
-    public static byte[] paddingOrDeleteZero(byte[] bytes,int len){
-        if(bytes.length == len){
-            return bytes;
-        }else if(bytes.length > len){
-            return Arrays.copyOfRange(bytes,bytes.length-len,bytes.length);
-        }else {
-            byte[] zero = new byte[len - bytes.length];
-            for (int i = 0; i <zero.length ; i++) {
-                zero[i] = 0x00;
-            }
-            return bytesArray2bytes(zero,bytes);
-        }
+    public static byte[] toUnsigned(BigInteger value){
+        byte[] bytes = value.toByteArray();
+        int start = bytes[0] == 0?1:0;
+        return Arrays.copyOfRange(bytes,start,bytes.length);
     }
 
     /**
