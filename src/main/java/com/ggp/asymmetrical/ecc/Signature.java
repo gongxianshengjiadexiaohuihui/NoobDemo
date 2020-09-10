@@ -19,20 +19,22 @@ public class Signature {
         this.s = s;
     }
     public Signature(byte[] bytes){
-        int rLen = bytes[0];
-        BigInteger r = new BigInteger(Arrays.copyOfRange(bytes,1,1+rLen));
-        int sLen = bytes[1+rLen];
-        if(rLen+sLen != bytes.length){
+        int rLen = ByteUtil.bytes2Int(Arrays.copyOfRange(bytes,0,4));
+        BigInteger r = new BigInteger(1,Arrays.copyOfRange(bytes,4,4+rLen));
+        int sLen = ByteUtil.bytes2Int(Arrays.copyOfRange(bytes,4+rLen,8+rLen));
+        if((rLen+sLen+8) != bytes.length){
             throw new RuntimeException("the length is error!");
         }
-        BigInteger s = new BigInteger(Arrays.copyOfRange(bytes,2+rLen,bytes.length));
+        BigInteger s = new BigInteger(1,Arrays.copyOfRange(bytes,8+rLen,bytes.length));
         this.r = r;
         this.s = s;
     }
     public byte[] getEncode(){
-        int rLen = r.bitLength()/8;
-        int sLen = s.bitLength()/8;
-        return ByteUtil.bytesArray2bytes(ByteUtil.int2Bytes(rLen),r.toByteArray(),ByteUtil.int2Bytes(sLen),s.toByteArray());
+        byte[] rBytes = ByteUtil.toUnsigned(r);
+        int rLen = rBytes.length;
+        byte[] sBytes = ByteUtil.toUnsigned(s);
+        int sLen = sBytes.length;
+        return ByteUtil.bytesArray2bytes(ByteUtil.int2Bytes(rLen),rBytes,ByteUtil.int2Bytes(sLen),sBytes);
     }
 
     public BigInteger getR() {

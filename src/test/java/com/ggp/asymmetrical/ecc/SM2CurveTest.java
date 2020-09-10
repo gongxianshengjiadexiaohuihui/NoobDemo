@@ -110,6 +110,16 @@ public class SM2CurveTest {
         Assert.assertEquals(r,P.getX().mod(SM2Curve.n));
     }
     @Test
+    public void test_sign_verify()throws Exception{
+        ECKeyPair keyPair = SM2Curve.generateKeyPair();
+        byte[] ID_A = "GGP".getBytes();
+        byte[] src = "test".getBytes();
+        byte[] sign = SM2Curve.sign(src,ID_A,keyPair.getPrivateKey());
+        boolean result = SM2Curve.verify(src,sign,ID_A,keyPair.getPublicKey());
+        Assert.assertTrue(result);
+
+    }
+    @Test
     public void test(){
         ECKeyPair keyPair = SM2Curve.generateKeyPair();
         System.out.println(keyPair.getPublicKey().getPoint());

@@ -164,7 +164,7 @@ public class SM2Curve {
      * A3:用随机数发生器产生随机数k属于[1,n-1];
      * A4:计算椭圆曲线上的点(x1,y1)=[k]G,按照GMT0003.1-2012的4.2.8给出的方法将x1的数据类型转换为整数；
      * A5:计算r=(e+x1) mod n,若r=0或r+k=n，则返回A3;
-     * A6:计算s=((1+d_A)^-1*(K-r*d_A)) mod n,若s=0则返回A3;
+     * A6:计算s=((1+d_A)^-1*(k-r*d_A)) mod n,若s=0则返回A3;
      * A7:按GMT0003.1-2012 4.2.2 给出的细节将r、s的数据类型转换为字节串，消息M的签名为(r,s)。
      *
      * @return
@@ -172,18 +172,18 @@ public class SM2Curve {
      */
     public static byte[] sign(byte[] src,byte[] ID_A,ECPrivateKey privateKey)throws IOException{
         byte[] M_ = ByteUtil.bytesArray2bytes(Z_A(ID_A,privateKey.getPoint()));
-        BigInteger e = new BigInteger(SM3Hash.hash(M_));
+        BigInteger e = new BigInteger(1,SM3Hash.hash(M_));
         while (true) {
             A3:
             while (true) {
                 BigInteger k = new BigInteger(length, new Random());
-                EllipticCurvePoint point = curve.scalar_multi(k, G);
-                BigInteger x1 = point.getX();
+                EllipticCurvePoint P = curve.scalar_multi(k, G);
+                BigInteger x1 = P.getX();
                 BigInteger r = e.add(x1).mod(n);
                 if (r.equals(BigInteger.valueOf(0L)) || r.add(k).equals(n)) {
                     break A3;
                 }
-                BigInteger s = (k.subtract(r.multiply(privateKey.getK())).divide(privateKey.getK().add(BigInteger.valueOf(1L)))).mod(n);
+                BigInteger s = (k.subtract(r.multiply(privateKey.getK())).multiply(curve.multiplyInverse(privateKey.getK().add(BigInteger.valueOf(1L)),n))).mod(n);
                 if (s.equals(BigInteger.valueOf(0L))) {
                     break A3;
                 }
@@ -205,13 +205,39 @@ public class SM2Curve {
      * B7:按照GMT0003.1-2012 4.2.8给出的方法将x1'的数据类型转换为整数，计算R=(e'+x1') mod n,校验R=r'是否成立，若成立则验证通过
      * 否则不通过。
      *
+     * 原理
+     * (x1',y1')=[s']G+[t]P_A
+     *          =s'G+(s'+r')d_AG
+     *          =(s'(1+d_A)+r'd_A)G
+     *  根据签名算法A6可以知道s'=((1+d_A)^-1*(k-r*d_A)) mod n
+     *  带入得(x1',y1')=kG,和签名的(x1,y1)是同一个点
+     *
      * @param src
      * @param sign
      * @param ID_A
      * @param publicKey
      * @return
      */
-    public static boolean verify(byte[] src,byte[] sign,byte[] ID_A,ECPublicKey publicKey){
-        return false;
+    public static boolean verify(byte[] src,byte[] sign,byte[] ID_A,ECPublicKey publicKey)throws Exception{
+        Signature signature = new Signature(sign);
+        BigInteger r = signature.getR();
+        BigInteger s = signature.getS();
+        BigInteger temp = BigInteger.valueOf(1L);
+        if(r.compareTo(n.subtract(temp))>0 || r.compareTo(temp)<0){
+            return false;
+        }
+        if(s.compareTo(n.subtract(temp))>0 || s.compareTo(temp)<0){
+            return false;
+        }
+        byte[] M_ = ByteUtil.bytesArray2bytes(Z_A(ID_A,publicKey.getPoint()));
+        BigInteger e = new BigInteger(1,SM3Hash.hash(M_));
+        BigInteger t = r.add(s);
+        EllipticCurvePoint P = curve.pointAdd(curve.scalar_multi(s,G),curve.scalar_multi(t,publicKey.getPoint()));
+        BigInteger R = e.add(P.getX()).mod(n);
+        if(R.equals(r)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
