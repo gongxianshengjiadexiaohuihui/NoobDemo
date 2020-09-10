@@ -111,12 +111,11 @@ public class SM4Cryptography {
      * 轮函数
      * 设输入为(X0,X1,X2,X3),轮秘钥为rk，则轮函数F为：
      * F(X0,X1,X2,X3,rk) = X0^T(X1^X2^X3^rk)
-     * @param X 明文
      * @param rk 轮秘钥
      * @return
      */
-    public static int F(int X[],int rk){
-        return X[0]^T(X[1]^X[2]^X[3]^rk,false);
+    public static int F(int X0,int X1,int X2,int X3,int rk){
+        return X0^T(X1^X2^X3^rk,false);
     }
     /**
      * 生成轮秘钥
@@ -142,4 +141,25 @@ public class SM4Cryptography {
         }
         return Arrays.copyOfRange(K,4,K.length);
     }
+
+    /**
+     * 加密算法
+     * 本加密算法由32次迭代运算和1次反序变换R组成。
+     * 设明文输入为(X(0),X(1),X(2),X(3))，密文输出为(Y(0),Y(1),Y(2),Y(3))，轮秘钥为rk(i),i=0,1,2,...,31。
+     * 加密算法的运算过程如下：
+     * (1)32次迭代运算:X(i+4)=F(X(i),X(i+1),X(i+2),X(i+3),rk(i))
+     * (2)反序变换:(Y(0),Y(1),Y(2),Y(3))=R(X(32),X(33),X(34),X(35))=(X(35),X(34),X(33),X(32))
+     * @param plainText
+     * @param key
+     * @return
+     */
+    public static byte[] encrypt(byte[] plainText,byte[] key){
+        if(plainText.length*8!=128){
+            throw new IllegalArgumentException("the plainText length must be 128 bit!");
+        }
+        int[] X = new int[32];
+        X[0]=ByteUtil.bytes2Int()
+    }
+
+
 }
