@@ -149,16 +149,30 @@ public class SM4Cryptography {
      * 加密算法的运算过程如下：
      * (1)32次迭代运算:X(i+4)=F(X(i),X(i+1),X(i+2),X(i+3),rk(i))
      * (2)反序变换:(Y(0),Y(1),Y(2),Y(3))=R(X(32),X(33),X(34),X(35))=(X(35),X(34),X(33),X(32))
-     * @param plainText
+     * @param src
      * @param key
      * @return
      */
-    public static byte[] encrypt(byte[] plainText,byte[] key){
-        if(plainText.length*8!=128){
-            throw new IllegalArgumentException("the plainText length must be 128 bit!");
+    public static byte[] encryptOrDecrypt(byte[] src, byte[] key,boolean isEncrypt){
+        if(src.length*8!=128){
+            throw new IllegalArgumentException("the src length must be 128 bit!");
         }
-        int[] X = new int[32];
-        X[0]=ByteUtil.bytes2Int()
+        int[] X = new int[36];
+        int[] rk = generateRoundKey(key);
+        for (int i = 0; i <4 ; i++) {
+            X[i]=ByteUtil.bytes2Int(Arrays.copyOfRange(src,i*4,(i+1)*4));
+        }
+        if(isEncrypt){
+            for (int i = 0; i <32 ; i++) {
+                X[i+4]=F(X[i],X[i+1],X[i+2],X[i+3],rk[i]);
+            }
+        }else{
+            for (int i = 0; i <32 ; i++) {
+                X[i+4]=F(X[i],X[i+1],X[i+2],X[i+3],rk[31-i]);
+            }
+        }
+
+        return ByteUtil.bytesArray2bytes(ByteUtil.intArray2bytes(new int[]{X[35],X[34],X[33],X[32]}));
     }
 
 

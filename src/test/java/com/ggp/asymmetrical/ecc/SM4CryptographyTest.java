@@ -6,8 +6,6 @@ import org.junit.Test;
 
 import java.math.BigInteger;
 
-import static org.junit.Assert.*;
-
 /**
  * @Author:ggp
  * @Date:2020-09-10 15:42
@@ -29,6 +27,14 @@ public class SM4CryptographyTest {
         for (int i = 0; i <roundkey.length ; i++) {
             ByteUtil.print(ByteUtil.int2Bytes(roundkey[i]),16);
         }
-
+    }
+    @Test
+    public void test_encrypt(){
+        byte[] key = new BigInteger("0123456789ABCDEFFEDCBA9876543210",16).toByteArray();
+        byte[] src = new BigInteger("0123456789ABCDEFFEDCBA9876543210",16).toByteArray();
+        byte[] cipher = SM4Cryptography.encryptOrDecrypt(src,key,true);
+        byte[] plain = SM4Cryptography.encryptOrDecrypt(cipher,key,false);
+        ByteUtil.print(cipher,16);
+        ByteUtil.print(plain,16);
     }
 }
