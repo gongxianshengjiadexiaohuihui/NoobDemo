@@ -4,7 +4,7 @@
   ### 路径 
     com.ggp.asymmetrical
   ### 内容
-    包换SM3哈希算法，SM2加密解密，签名验签的实现，符合国密规范
+    包换SM3哈希算法，SM2加密解密，签名验签的实现，符合国密规范，以及对ECDH、ECDSA的验证
 ## JDK中的容器
   ### 路径
     com.ggp.container
