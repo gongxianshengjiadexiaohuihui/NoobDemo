@@ -73,24 +73,14 @@ public class SM3Hash {
      * 置换函数
      */
     private static int P0(int x) {
-        return x ^ (rotateLeft(x, 9)) ^ (rotateLeft(x, 17));
+        return x ^ (ByteUtil.rotateLeft(x, 9)) ^ (ByteUtil.rotateLeft(x, 17));
     }
 
     private static int P1(int x) {
-        return x ^ (rotateLeft(x, 15)) ^ (rotateLeft(x, 23));
+        return x ^ (ByteUtil.rotateLeft(x, 15)) ^ (ByteUtil.rotateLeft(x, 23));
     }
 
-    /**
-     * 循环左移
-     * 移出的高位放到该数的低位
-     *
-     * @param i
-     * @param bit
-     * @return
-     */
-    private static int rotateLeft(int i, int bit) {
-        return (i >>> (32-bit)) | (i << bit);
-    }
+  
 
     public static byte[] hash(byte[] src) throws IOException{
         return iterativeCompression(padding(src));
@@ -196,16 +186,16 @@ public class SM3Hash {
         G = ByteUtil.bytes2Int(Arrays.copyOfRange(VI, 24, 28));
         H = ByteUtil.bytes2Int(Arrays.copyOfRange(VI, 28, 32));
         for (int j = 0; j < 64; j++) {
-            SS1 = rotateLeft((rotateLeft(A, 12) + E + rotateLeft(T(j), j)), 7);
-            SS2 = SS1 ^ rotateLeft(A, 12);
+            SS1 = ByteUtil.rotateLeft((ByteUtil.rotateLeft(A, 12) + E + ByteUtil.rotateLeft(T(j), j)), 7);
+            SS2 = SS1 ^ ByteUtil.rotateLeft(A, 12);
             TT1 = FF(A, B, C, j) + D + SS2 + W_[j];
             TT2 = GG(E, F, G, j) + H + SS1 + W[j];
             D = C;
-            C = rotateLeft(B, 9);
+            C = ByteUtil.rotateLeft(B, 9);
             B = A;
             A = TT1;
             H = G;
-            G = rotateLeft(F, 19);
+            G = ByteUtil.rotateLeft(F, 19);
             F = E;
             E = P0(TT2);
         }
@@ -239,7 +229,7 @@ public class SM3Hash {
             W[i] = ByteUtil.bytes2Int(Arrays.copyOfRange(B, i * 4, (i + 1) * 4));
         }
         for (int i = 16; i < 68; i++) {
-            W[i] = P1(W[i - 16] ^ W[i - 9] ^ rotateLeft(W[i - 3], 15)) ^ rotateLeft(W[i - 13], 7) ^ W[i - 6];
+            W[i] = P1(W[i - 16] ^ W[i - 9] ^ ByteUtil.rotateLeft(W[i - 3], 15)) ^ ByteUtil.rotateLeft(W[i - 13], 7) ^ W[i - 6];
         }
         for (int i = 0; i < 64; i++) {
             W_[i] = W[i] ^ W[i + 4];

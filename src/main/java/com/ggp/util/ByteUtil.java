@@ -51,6 +51,17 @@ public class ByteUtil {
         }
         return bytes;
     }
+    /**
+     * 循环左移
+     * 移出的高位放到该数的低位
+     *
+     * @param i
+     * @param bit
+     * @return
+     */
+    public static int rotateLeft(int i, int bit) {
+        return (i >>> (32-bit)) | (i << bit);
+    }
 
     /**
      * 填充0或者去掉前面多余的0
