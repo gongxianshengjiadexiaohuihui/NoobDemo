@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-demo-rabbitmq</module>
+        <module>spring-boot-demo-rocketmq</module>
     </modules>
     <properties>
         <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
