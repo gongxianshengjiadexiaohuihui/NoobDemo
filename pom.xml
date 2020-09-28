@@ -6,7 +6,11 @@
 
     <groupId>com.ggp.noob</groupId>
     <artifactId>noob-demo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-boot-demo</module>
+    </modules>
 
     <dependencies>
         <dependency>
