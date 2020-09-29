@@ -40,9 +40,7 @@ public class RocketMqConfig {
     public DefaultMQPushConsumer pushConsumer() throws Exception{
         DefaultMQPushConsumer pushConsumer = new DefaultMQPushConsumer(consumerGroup);
         pushConsumer.setNamesrvAddr(nameSrvAddr);
-        Map<String,String> subscription = new HashMap<>();
-        subscription.put(topic,"*");
-        pushConsumer.setSubscription(subscription);
+        pushConsumer.subscribe(topic,"*");
         pushConsumer.setMessageListener(new MessageResolveListener());
         /**
          * 进行内部的一些初始化
