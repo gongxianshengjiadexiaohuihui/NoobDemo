@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-demo" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo-rabbitmq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo-redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo-redis/spring-boot-demo-redis-jedis" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo-rocketmq" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
   </component>
