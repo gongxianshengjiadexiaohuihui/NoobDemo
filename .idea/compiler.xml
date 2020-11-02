@@ -9,6 +9,7 @@
         <module name="spring-boot-demo-rabbitmq" />
         <module name="spring-boot-demo-rocketmq" />
         <module name="spring-boot-demo-redis-jedis" />
+        <module name="spring-boot-demo-redis-redission" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

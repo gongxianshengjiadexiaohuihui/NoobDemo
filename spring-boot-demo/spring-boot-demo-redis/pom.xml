@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-demo-redis-jedis</module>
+        <module>spring-boot-demo-redis-redission</module>
     </modules>
 
 </project>
