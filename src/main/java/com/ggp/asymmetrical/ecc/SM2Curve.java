@@ -171,7 +171,7 @@ public class SM2Curve {
      * 两个while true 实现goto语句
      */
     public static byte[] sign(byte[] src,byte[] ID_A,ECPrivateKey privateKey)throws IOException{
-        byte[] M_ = ByteUtil.bytesArray2bytes(Z_A(ID_A,privateKey.getPoint()));
+        byte[] M_ = ByteUtil.bytesArray2bytes(Z_A(ID_A,privateKey.getPoint()),src);
         BigInteger e = new BigInteger(1,SM3Hash.hash(M_));
         while (true) {
             A3:
@@ -229,7 +229,7 @@ public class SM2Curve {
         if(s.compareTo(n.subtract(temp))>0 || s.compareTo(temp)<0){
             return false;
         }
-        byte[] M_ = ByteUtil.bytesArray2bytes(Z_A(ID_A,publicKey.getPoint()));
+        byte[] M_ = ByteUtil.bytesArray2bytes(Z_A(ID_A,publicKey.getPoint()),src);
         BigInteger e = new BigInteger(1,SM3Hash.hash(M_));
         BigInteger t = r.add(s);
         EllipticCurvePoint P = curve.pointAdd(curve.scalar_multi(s,G),curve.scalar_multi(t,publicKey.getPoint()));
