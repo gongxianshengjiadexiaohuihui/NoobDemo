@@ -1,6 +1,6 @@
 package com.ggp.noob.demo.algorithm.asymmetrical.ecc;
 
-import com.ggp.util.ByteUtil;
+import com.ggp.noob.util.common.bytes.ByteUtil;
 import org.junit.Test;
 
 import java.math.BigInteger;

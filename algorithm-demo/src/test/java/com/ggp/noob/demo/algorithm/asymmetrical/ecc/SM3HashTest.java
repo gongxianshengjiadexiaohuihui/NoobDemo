@@ -1,7 +1,7 @@
 package com.ggp.noob.demo.algorithm.asymmetrical.ecc;
 
 
-import com.ggp.util.ByteUtil;
+import com.ggp.noob.util.common.bytes.ByteUtil;
 import org.junit.Test;
 
 public class SM3HashTest {
@@ -29,6 +29,7 @@ public class SM3HashTest {
     @Test
     public void test_hash()throws Exception{
         byte[] hash = SM3Hash.hash("abc".getBytes());
+        System.out.println();
         ByteUtil.print(hash,16);
     }
 
