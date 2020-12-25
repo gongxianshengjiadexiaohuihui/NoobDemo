@@ -1,0 +1,20 @@
+
+B
+java:S16128",Replace this lambda with a method reference.(ñÏ»®
+S	java:S106"9Replace this use of System.out or System.err by a logger.(«›š¾üÿÿÿÿ
+B
+java:S1612B",Replace this lambda with a method reference.(É¡ú‘
+N	java:S106="9Replace this use of System.out or System.err by a logger.(ó•—Ã
+l
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(«›š¾üÿÿÿÿ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ðÅ¦Õÿÿÿÿÿ
+G
+java:S1612:",Replace this lambda with a method reference.(µËÏ¿ýÿÿÿÿ
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+<
+java:S1659+"!Declare "end" on a separate line.(Øýèÿÿÿÿÿ
+G
+java:S16129",Replace this lambda with a method reference.(Æñ—ýÿÿÿÿ
+N	java:S106E"9Replace this use of System.out or System.err by a logger.( á’Æ
+S	java:S1062"9Replace this use of System.out or System.err by a logger.(àÜ Šúÿÿÿÿ

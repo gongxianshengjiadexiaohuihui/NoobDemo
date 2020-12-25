@@ -84,5 +84,8 @@ public class testRedisson {
         System.out.println("总共"+success+"获取锁成功");
         System.out.println("总共"+fail+"获取锁失败");
     }
+    @Test
+    public void test_redisson(){
+    }
 
 }

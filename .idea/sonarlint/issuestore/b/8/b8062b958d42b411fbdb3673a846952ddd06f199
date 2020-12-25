@@ -1,0 +1,17 @@
+
+>
+java:S1444")Make this "public static str" field final(á‹3
+G
+java:S1444",Make this "public static random" field final(×‘éµùÿÿÿÿ
+a	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÕÚ
+d
+java:S1104"OMake str a static final constant or non-public and provide accessors if needed.(á‹3
+m
+java:S1104"RMake random a static final constant or non-public and provide accessors if needed.(×‘éµùÿÿÿÿ
+2
+java:S2386"Make this member "protected".(á‹3
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+\
+java:S2142)"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+N	java:S106("9Replace this use of System.out or System.err by a logger.(é•Û

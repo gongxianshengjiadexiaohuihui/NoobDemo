@@ -1,0 +1,42 @@
+
+k	java:S117V"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñø¦ªøÿÿÿÿ
+k	java:S117|"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıøÈ£şÿÿÿÿ
+g	java:S117è"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀË ®
+l	java:S117ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª†»‹ûÿÿÿÿ
+V
+java:S1119Q";Refactor the code to remove this label and the need for it.(¹»ı×şÿÿÿÿ
+f	java:S117U"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸€ÔÜ
+k	java:S117}"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÆ­æşÿÿÿÿ
+F
+java:S1172İ"*Remove this unused method parameter "src".(éõ¥¡ıÿÿÿÿ
+l	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä€ÒÖúÿÿÿÿ
+k	java:S117c"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©Çı¶ıÿÿÿÿ
+l	java:S117´"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Úáúÿÿÿÿ
+t	java:S135²"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜èÓûÿÿÿÿ
+`	java:S112X"FDefine and throw a dedicated exception instead of using a generic one.(õƒ„·ûÿÿÿÿ
+g	java:S117®"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìúÖÄ
+f	java:S117~"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ßçè
+U
+java:S1118":Add a private constructor to hide the implicit public one.(·ğ€ùÿÿÿÿÿ
+g	java:S117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€Ÿôñ
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‰›îéüÿÿÿÿ
+d	java:S100™"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Îò¥°
+l	java:S117İ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éõ¥¡ıÿÿÿÿ
+a	java:S112İ"FDefine and throw a dedicated exception instead of using a generic one.(éõ¥¡ıÿÿÿÿ
+A
+java:S1172­"*Remove this unused method parameter "src".(Üù¥â
+g	java:S117™"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Îò¥°
+g	java:S117­"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üù¥â
+[	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(şÑÀV
+k	java:S117T"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æäæûÿÿÿÿ
+k	java:S117{"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı«Ğ‚ûÿÿÿÿ
+R
+java:S1119±";Refactor the code to remove this label and the need for it.(¡í¹¸
+g	java:S117™"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Îò¥°
+k	java:S117_"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯˜ÑËüÿÿÿÿ
+a	java:S112‹"FDefine and throw a dedicated exception instead of using a generic one.(ÂåĞöùÿÿÿÿ
+X
+java:S1126í"AReplace this if-then-else statement by a single return statement.(õÉŠ§
+[
+java:S1128"9Remove this unused import 'java.io.ByteArrayInputStream'.(Ëôæ±ûÿÿÿÿ8´üÇ½é.

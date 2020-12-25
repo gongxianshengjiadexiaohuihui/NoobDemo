@@ -2,7 +2,7 @@
     本项目是本人实验和学习过程中写的demo,因为用了jdk11的一些特性，所以需要的jdk版本是jdk11
 ## 非对称加密算法
   ### 路径 
-    com.ggp.asymmetrical
+    com.ggp.noob.demo.algorithm.asymmetrical
   ### 内容
     包换SM3哈希算法，SM2加密解密，签名验签的实现，符合国密规范，以及对ECDH、ECDSA的验证
 ## JDK中的容器

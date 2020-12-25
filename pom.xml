@@ -10,6 +10,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-boot-demo</module>
+        <module>algorithm-demo</module>
+        <module>concurrent-demo</module>
+        <module>io-demo</module>
+        <module>container-demo</module>
+        <module>base-demo</module>
     </modules>
 
     <dependencies>

@@ -1,0 +1,26 @@
+
+]	java:S125-"<This block of commented-out lines of code should be removed.(ËŸé‰úÿÿÿÿ8˜©íÛä.
+N
+java:S1481,",Remove this unused "future4" local variable.(‡­¢ùÿÿÿÿ8˜©íÛä.
+]
+java:S1854)";Remove this useless assignment to local variable "future1".(³¶”¾üÿÿÿÿ8˜©íÛä.
+U	java:S106Z"9Replace this use of System.out or System.err by a logger.(ëôßÊ8ìŸéÛä.
+N
+java:S1481+",Remove this unused "future3" local variable.(ùªÔÿøÿÿÿÿ8˜©íÛä.
+:
+java:S16596"$Declare "endPos" on a separate line.(»­·
+N
+java:S1481)",Remove this unused "future1" local variable.(³¶”¾üÿÿÿÿ8˜©íÛä.
+I
+java:S1481*",Remove this unused "future2" local variable.(çĞì8˜©íÛä.
+
+java:S1130"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Şıÿÿÿÿ8˜©íÛä.
+X
+java:S1854*";Remove this useless assignment to local variable "future2".(çĞì8˜©íÛä.
+N	java:S1062"9Replace this use of System.out or System.err by a logger.(˜Õÿ
+]
+java:S1854+";Remove this useless assignment to local variable "future3".(ùªÔÿøÿÿÿÿ8˜©íÛä.
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¯È³şÿÿÿÿ
+]
+java:S1854,";Remove this useless assignment to local variable "future4".(‡­¢ùÿÿÿÿ8˜©íÛä.
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ù˜í¶

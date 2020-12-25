@@ -1,0 +1,12 @@
+
+B
+java:S1444"'Make this "public static v" field final(š¤å†úÿÿÿÿ
+[	java:S112 "FDefine and throw a dedicated exception instead of using a generic one.(ŒÊèŸ
+f	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒÊèŸ
+f	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬üå±
+f	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(û§¬â
+h
+java:S1104"MMake v a static final constant or non-public and provide accessors if needed.(š¤å†úÿÿÿÿ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(âóà¶ûÿÿÿÿ
+c	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒÊèŸ
