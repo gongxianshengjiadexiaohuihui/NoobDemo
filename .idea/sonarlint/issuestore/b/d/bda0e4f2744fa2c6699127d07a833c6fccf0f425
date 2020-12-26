@@ -1,16 +1,0 @@
-
-{
-java:S4165€"_Remove this useless assignment; "h" already holds the assigned value along all execution paths.(¶œÕĞüÿÿÿÿ
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎñÀå
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎñÀå
-a	java:S116"LRename this field "P" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨ùÔ
-`	java:S116"LRename this field "G" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î¿ã~
-d	java:S100‘"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿¸ûÔ
-5
-java:S1659«"Declare "x" on a separate line.(İ‹Ú
-5
-java:S1659«"Declare "y" on a separate line.(İ‹Ú
-Q
-java:S1854€"5Remove this useless assignment to local variable "h".(¶œÕĞüÿÿÿÿ
-K
-java:S1656€"/Remove or correct this useless self-assignment.(¶œÕĞüÿÿÿÿ

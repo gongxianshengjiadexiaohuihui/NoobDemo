@@ -1,18 +1,0 @@
-
-G
-java:S1602",Remove useless curly braces around statement(Ğ­‰ˆúÿÿÿÿ
-J
-java:S1611"/Remove the parentheses around the "o" parameter(¾àÀÛùÿÿÿÿ
-G
-java:S1612",Replace this lambda with a method reference.(Ğ­‰ˆúÿÿÿÿ
-b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ä£Ö
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(±Üï—ùÿÿÿÿ
-G
-java:S1612",Replace this lambda with a method reference.(¾àÀÛùÿÿÿÿ
-S	java:S106 "9Replace this use of System.out or System.err by a logger.(Çá•ùÿÿÿÿ
-\
-java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
-G
-java:S1602",Remove useless curly braces around statement(¾àÀÛùÿÿÿÿ
-J
-java:S1611"/Remove the parentheses around the "o" parameter(¾àÀÛùÿÿÿÿ

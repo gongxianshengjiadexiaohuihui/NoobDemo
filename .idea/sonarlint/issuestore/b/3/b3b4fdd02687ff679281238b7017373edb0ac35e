@@ -1,22 +1,0 @@
-
-S	java:S106"9Replace this use of System.out or System.err by a logger.(¤©Ïíüÿÿÿÿ
-B
-java:S1602",Remove useless curly braces around statement(¥—ığ
-B
-java:S1602",Remove useless curly braces around statement(¥—ığ
-J
-java:S1854&"5Remove this useless assignment to local variable "i".(›º<
-B
-java:S1612",Replace this lambda with a method reference.(¥—ığ
-=
-java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ
-B
-java:S1612",Replace this lambda with a method reference.(¥—ığ
-b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ïÔŠ²
-\
-java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
-;
-java:S1481&"&Remove this unused "i" local variable.(›º<
-X
-java:S3518&"CMake sure this expression can't be zero before doing this division.(›º<
-S	java:S106"9Replace this use of System.out or System.err by a logger.(±‘î¨úÿÿÿÿ

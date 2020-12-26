@@ -1,10 +1,0 @@
-
-G
-java:S1602",Remove useless curly braces around statement(†İşüÿÿÿÿ
-\
-java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
-N	java:S106"9Replace this use of System.out or System.err by a logger.(à¡µô
-_
-java:S2147"DCombine this catch with the one at line 21, which has the same body.(†«”Ïüÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(±Üï—ùÿÿÿÿ
-g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(†¹Êïıÿÿÿÿ

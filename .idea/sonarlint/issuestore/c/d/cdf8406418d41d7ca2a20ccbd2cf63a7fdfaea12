@@ -1,11 +1,0 @@
-
-S	java:S106"9Replace this use of System.out or System.err by a logger.(Ä¦÷Êûÿÿÿÿ
-B
-java:S1602.",Remove useless curly braces around statement(¹©¤÷
-S	java:S106"9Replace this use of System.out or System.err by a logger.(û„ƒüÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(Ç˜ñûÿÿÿÿ
-N	java:S106)"9Replace this use of System.out or System.err by a logger.(Øî±Ñ
-S	java:S106/"9Replace this use of System.out or System.err by a logger.(ïİÏûøÿÿÿÿ
-b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(®å¶Œ
-B
-java:S1602(",Remove useless curly braces around statement(¥—ığ
