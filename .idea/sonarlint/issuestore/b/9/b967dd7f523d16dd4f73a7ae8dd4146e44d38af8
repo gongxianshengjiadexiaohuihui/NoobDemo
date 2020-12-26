@@ -1,0 +1,27 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ºÓ¬
+l
+java:S1104R"QMake count a static final constant or non-public and provide accessors if needed.(§™…×ıÿÿÿÿ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 38 to the 15 allowed.(Çµí‘
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Çá•ùÿÿÿÿ
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+_
+java:S2147!"DCombine this catch with the one at line 31, which has the same body.(†«”Ïüÿÿÿÿ
+\
+java:S2142&"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+\
+java:S21420"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+_
+java:S21472"DCombine this catch with the one at line 48, which has the same body.(†«”Ïüÿÿÿÿ
+\
+java:S21427"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+\
+java:S2142A"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+_
+java:S2147C"DCombine this catch with the one at line 65, which has the same body.(†«”Ïüÿÿÿÿ
+\
+java:S2142H"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€

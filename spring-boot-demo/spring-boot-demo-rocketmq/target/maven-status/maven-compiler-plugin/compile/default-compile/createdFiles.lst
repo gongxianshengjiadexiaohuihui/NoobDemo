@@ -1,0 +1,4 @@
+com\ggp\RocketMqConfig.class
+com\ggp\Sender.class
+com\ggp\Application.class
+com\ggp\MessageResolveListener.class

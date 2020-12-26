@@ -1,0 +1,6 @@
+
+Y
+java:S3078">Use an "AtomicLong" for this field; its operations are atomic.(¤ƒÍşÿÿÿÿ
+Q
+java:S2696"6Make the enclosing method "static" or remove this set.(¤ƒÍşÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(È·ˆ½ûÿÿÿÿ

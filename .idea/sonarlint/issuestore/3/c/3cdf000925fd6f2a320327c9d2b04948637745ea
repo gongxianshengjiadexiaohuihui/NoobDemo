@@ -1,0 +1,18 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ä˜Ãûÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç½¥·ûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(·ÍÁ¶þÿÿÿÿ
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•Óëá
+S	java:S106 "9Replace this use of System.out or System.err by a logger.(·ÍÁ¶þÿÿÿÿ
+N	java:S106%"9Replace this use of System.out or System.err by a logger.(“ÉÅ×
+c	java:S1000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Û¥¼
+S	java:S1063"9Replace this use of System.out or System.err by a logger.(·ÍÁ¶þÿÿÿÿ
+\
+java:S21426"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+\
+java:S2142>"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+N	java:S106B"9Replace this use of System.out or System.err by a logger.(“ÉÅ×
+\
+java:S2142E"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€

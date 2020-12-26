@@ -1,0 +1,12 @@
+
+b	java:S101	"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ìÅ∫—
+K
+java:S1854"5Remove this useless assignment to local variable "o".(±¿Ü£
+m
+java:S3077"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(è°æ’
+i
+java:S3008"SRename this field "INSTANCE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è°æ’
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(è°æ’
+<
+java:S1481"&Remove this unused "o" local variable.(±¿Ü£

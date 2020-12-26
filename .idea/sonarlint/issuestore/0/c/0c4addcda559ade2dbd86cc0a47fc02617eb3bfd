@@ -1,0 +1,25 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(®‹œ·ùÿÿÿÿ
+B
+java:S1612",Replace this lambda with a method reference.(¥—ığ
+B
+java:S1612",Replace this lambda with a method reference.(¥—ığ
+Q	java:S125"<This block of commented-out lines of code should be removed.(­½æ»
+B
+java:S1602",Remove useless curly braces around statement(¥—ığ
+B
+java:S1602",Remove useless curly braces around statement(¥—ığ
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(…úéÚüÿÿÿÿ
+\
+java:S2142)"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+S	java:S106-"9Replace this use of System.out or System.err by a logger.(ğƒ©¶ÿÿÿÿÿ
+\
+java:S21422"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+N	java:S1065"9Replace this use of System.out or System.err by a logger.(†ı¾…
+N	java:S106;"9Replace this use of System.out or System.err by a logger.(îÀûÜ
+\
+java:S2142>"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+N	java:S106A"9Replace this use of System.out or System.err by a logger.(ö—ÅÌ
+M	java:S106J"9Replace this use of System.out or System.err by a logger.(üæó
+
+S	java:S106L"9Replace this use of System.out or System.err by a logger.(ƒç‘ıÿÿÿÿ

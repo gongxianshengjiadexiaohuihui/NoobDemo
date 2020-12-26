@@ -1,0 +1,14 @@
+
+a	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Õ•æt
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ô‚¿…
+o
+java:S1450"TRemove the "value" field and declare it as a local variable in the relevant methods.(æ†“×úÿÿÿÿ
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+N	java:S106"9Replace this use of System.out or System.err by a logger.(‘¦Ì€
+\
+java:S2142+"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+N	java:S106*"9Replace this use of System.out or System.err by a logger.(þ¨×•
+V	java:S1255"<This block of commented-out lines of code should be removed.(´êÎøÿÿÿÿ
+D
+java:S1068")Remove this unused "value" private field.(æ†“×úÿÿÿÿ

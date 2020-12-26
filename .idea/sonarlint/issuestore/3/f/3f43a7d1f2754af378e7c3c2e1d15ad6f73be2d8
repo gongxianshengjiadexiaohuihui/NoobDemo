@@ -1,0 +1,16 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Âƒâôýÿÿÿÿ
+T
+java:S1155?">Use isEmpty() to check whether the collection is empty or not.(§ŒÍ‚
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ÿ²ØÕþÿÿÿÿ
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+c	java:S116+"NRename this field "MAX" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùàÎ¥
+7
+java:S1170+"!Make this final field static too.(ùàÎ¥
+[
+java:S1124+"EReorder the modifiers to comply with the Java Language Specification.(ùàÎ¥
+\
+java:S21422"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+\
+java:S2142B"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€

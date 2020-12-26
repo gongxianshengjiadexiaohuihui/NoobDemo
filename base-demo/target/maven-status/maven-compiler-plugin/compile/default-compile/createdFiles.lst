@@ -1,0 +1,5 @@
+com\ggp\noob\demo\base\reference\R02_SoftRef.class
+com\ggp\noob\demo\base\reference\R04_PhantomRef.class
+com\ggp\noob\demo\base\reference\Demo.class
+com\ggp\noob\demo\base\reference\R01_StrongRef.class
+com\ggp\noob\demo\base\reference\R03_WeakRef.class

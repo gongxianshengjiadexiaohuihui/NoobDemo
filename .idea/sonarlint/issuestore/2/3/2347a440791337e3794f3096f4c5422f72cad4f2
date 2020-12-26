@@ -1,0 +1,14 @@
+
+g	java:S101!"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(›½è“úÿÿÿÿ
+Q	java:S125%"<This block of commented-out lines of code should be removed.(êë÷ç
+o
+java:S2293&"YReplace the type specification in this constructor call with the diamond operator ("<>").(‰“†
+g
+java:S34571"Q%n should be used in place of \n to produce the platform-specific line separator.(¿›µê
+N	java:S1061"9Replace this use of System.out or System.err by a logger.(¿›µê
+\
+java:S21424"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+_
+java:S21476"DCombine this catch with the one at line 52, which has the same body.(†«”Ïüÿÿÿÿ
+S	java:S106="9Replace this use of System.out or System.err by a logger.(’Ò‹Ùùÿÿÿÿ
+S	java:S106D"9Replace this use of System.out or System.err by a logger.(ù¶¿êøÿÿÿÿ

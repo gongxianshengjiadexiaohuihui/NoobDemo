@@ -1,0 +1,13 @@
+
+M
+java:S1153"1Directly append the argument of String.valueOf().(¹ÊÎÉıÿÿÿÿ
+P
+java:S1141G"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+M
+java:S2589J"7Remove this expression which always evaluates to "true"(Ô¯á˜
+N	java:S106/"9Replace this use of System.out or System.err by a logger.(åÒ¨è
+h
+java:S37769"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(“–ış
+P
+java:S4719"9Replace charset name argument with StandardCharsets.UTF_8(‚¥¾³
+O	java:S106"9Replace this use of System.out or System.err by a logger.(ëç¯

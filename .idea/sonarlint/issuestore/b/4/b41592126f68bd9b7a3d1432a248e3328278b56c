@@ -1,0 +1,22 @@
+
+X
+java:S3518&"CMake sure this expression can't be zero before doing this division.(õ∫ù<
+=
+java:S2189""Add an end condition to this loop.(òÔàûˇˇˇˇˇ
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ô‘ä≤
+B
+java:S1612",Replace this lambda with a method reference.(•ó˝
+B
+java:S1612",Replace this lambda with a method reference.(•ó˝
+B
+java:S1602",Remove useless curly braces around statement(•ó˝
+B
+java:S1602",Remove useless curly braces around statement(•ó˝
+J
+java:S1854&"5Remove this useless assignment to local variable "i".(õ∫ù<
+S	java:S106"9Replace this use of System.out or System.err by a logger.(§©œÌ¸ˇˇˇˇ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(±ëÓ®˙ˇˇˇˇ
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(‰†πÄ
+;
+java:S1481&"&Remove this unused "i" local variable.(õ∫ù<

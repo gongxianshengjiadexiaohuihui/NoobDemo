@@ -1,0 +1,12 @@
+
+D
+java:S1444")Make this "public static str" field final(Ï›ıÿÿÿÿ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(À™óøÿÿÿÿ
+j
+java:S1104"OMake str a static final constant or non-public and provide accessors if needed.(Ï›ıÿÿÿÿ
+8
+java:S2386"Make this member "protected".(Ï›ıÿÿÿÿ
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+O	java:S899":Do something with the "boolean" value returned by "offer".(­±Ñ
+M	java:S106"9Replace this use of System.out or System.err by a logger.(ƒÚáB

@@ -1,0 +1,6 @@
+
+a	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(É‡¤
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+S	java:S106"9Replace this use of System.out or System.err by a logger.( ë¼‡úÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(×„Öƒøÿÿÿÿ

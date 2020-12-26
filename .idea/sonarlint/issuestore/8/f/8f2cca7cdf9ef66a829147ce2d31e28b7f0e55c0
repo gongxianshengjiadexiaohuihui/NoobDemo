@@ -1,0 +1,8 @@
+
+g
+java:S1104"QMake latch a static final constant or non-public and provide accessors if needed.(’Àä
+i
+java:S1104"SMake channel a static final constant or non-public and provide accessors if needed.(’Ó­­
+S	java:S106"9Replace this use of System.out or System.err by a logger.(—şçÊøÿÿÿÿ
+\
+java:S2142&"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€

@@ -1,0 +1,12 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÂˆÍöÿÿÿÿÿ
+P
+java:S1854"5Remove this useless assignment to local variable "b".(· Ô«üÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ë À«
+j
+java:S1215"TDon't try to be smarter than the JVM, remove this call to run the garbage collector.(Ì°¬“
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ë À«
+A
+java:S1481"&Remove this unused "b" local variable.(· Ô«üÿÿÿÿ

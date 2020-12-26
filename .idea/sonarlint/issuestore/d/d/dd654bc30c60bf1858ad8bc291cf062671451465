@@ -1,0 +1,11 @@
+
+L
+java:S1444"1Make this "public static clientCount" field final(©ë¦Éýÿÿÿÿ
+r
+java:S1104"WMake clientCount a static final constant or non-public and provide accessors if needed.(©ë¦Éýÿÿÿÿ
+m
+java:S3008	"WRename this field "DEFAULT_PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ôÒº
+U
+java:S1118":Add a private constructor to hide the implicit public one.(¡’ž‚ûÿÿÿÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(©ë¦Éýÿÿÿÿ

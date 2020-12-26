@@ -1,0 +1,20 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(êîóÃ
+G
+java:S1612",Replace this lambda with a method reference.(Ð­‰ˆúÿÿÿÿ
+G
+java:S1602",Remove useless curly braces around statement(Ð­‰ˆúÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(‹”ãåùÿÿÿÿ
+J
+java:S1611"/Remove the parentheses around the "o" parameter(¾àÀÛùÿÿÿÿ
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+S	java:S106""9Replace this use of System.out or System.err by a logger.(ÖÝ°þÿÿÿÿ
+\
+java:S2142*"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+\
+java:S21422"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+\
+java:S2142:"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+\
+java:S2142D"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€

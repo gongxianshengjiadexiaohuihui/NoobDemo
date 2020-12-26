@@ -1,0 +1,21 @@
+
+E
+java:S3740<"/Provide the parametrized type for this generic.(¡¼Ş
+E
+java:S3740<"/Provide the parametrized type for this generic.(¡¼Ş
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(è†¿…
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+P
+java:S2274":Remove this call to "wait" or move it into a "while" loop.(ŒºÙ
+F
+java:S2446"0"notify" may not wake up the appropriate thread.(ŒâÌ†
+S	java:S106("9Replace this use of System.out or System.err by a logger.(—Ï¨üşÿÿÿÿ
+\
+java:S2142."FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+P
+java:S2274-":Remove this call to "wait" or move it into a "while" loop.(ŒºÙ
+F
+java:S24465"0"notify" may not wake up the appropriate thread.(ŒâÌ†
+M	java:S1066"9Replace this use of System.out or System.err by a logger.(‡ËÒw
+N	java:S106@"9Replace this use of System.out or System.err by a logger.(»²ıÃ
