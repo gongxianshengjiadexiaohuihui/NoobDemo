@@ -331,5 +331,7 @@ ualgorithm-demo/src/test/java/com/ggp/noob/demo/algorithm/hash/consistent/Consis
 ralgorithm-demo/src/test/java/com/ggp/noob/demo/algorithm/hash/consistent/ConsistentHashingWithVirtualNodeTest.java,e\2\e23f95ab8438b0916a045dcc1dcd6c73fed5a7e0
 ž
 nalgorithm-demo/src/main/java/com/ggp/noob/demo/algorithm/hash/consistent/ConsistentHashingWithVirtualNode.java,5\b\5b209602d47b2a6477689652b0c6e4cd24c98f2b
-‚
-Ralgorithm-demo/src/test/java/com/ggp/noob/demo/algorithm/hash/consistent/Test.java,9\0\9036cd6ec795dab86a48004748d04584eb432775
+s
+Cbase-demo/src/main/java/com/ggp/noob/demo/base/jni/NativeUtils.java,a\2\a2705d997568f6ae847317c5b5f9eb08a0961619
+u
+Ebase-demo/src/main/java/com/ggp/noob/demo/base/jni/JniHelloWorld.java,2\2\224c8230fccae121a93d71129a744f4c5aff81ba

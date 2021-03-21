@@ -1,12 +1,12 @@
 
+`	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(ë¸ÆÃÿÿÿÿÿ
+<
+java:S1168M"&Return an empty array instead of null.(¥¹ï
+\
+java:S11267"AReplace this if-then-else statement by a single return statement.(ÄªÑ¼ùÿÿÿÿ
+M
+java:S11351"2Complete the task associated to this TODO comment.(³µ‰¾ûÿÿÿÿ
 >
 java:S1068"(Remove this unused "ZERO" private field.(¸ñêğ
 f
 java:S12064"PThis class overrides "equals()" and should therefore also override "hashCode()".(ÜÑã
-M
-java:S11351"2Complete the task associated to this TODO comment.(³µ‰¾ûÿÿÿÿ
-\
-java:S11267"AReplace this if-then-else statement by a single return statement.(ÄªÑ¼ùÿÿÿÿ
-<
-java:S1168M"&Return an empty array instead of null.(¥¹ï
-`	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(ë¸ÆÃÿÿÿÿÿ
