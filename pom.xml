@@ -15,6 +15,7 @@
         <module>io-demo</module>
         <module>container-demo</module>
         <module>base-demo</module>
+        <module>leetcode-demo</module>
     </modules>
 
     <dependencies>

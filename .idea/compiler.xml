@@ -11,6 +11,7 @@
         <module name="concurrent-demo" />
         <module name="container-demo" />
         <module name="spring-boot-demo-redis-redission" />
+        <module name="leetcode-demo" />
         <module name="base-demo" />
         <module name="algorithm-demo" />
         <module name="spring-boot-demo-rocketmq" />
