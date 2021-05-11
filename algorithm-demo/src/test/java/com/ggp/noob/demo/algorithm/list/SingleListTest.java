@@ -83,4 +83,23 @@ public class SingleListTest {
         linkList.sentinel.next = node4;
         System.out.println(linkList.hasRing());
     }
+    @Test
+    public void test_list_merage(){
+        SingleList.Node node1 = new SingleList.Node(9, null);
+        SingleList.Node node2 = new SingleList.Node(7, node1);
+        SingleList.Node node3 = new SingleList.Node(4, node2);
+        SingleList.Node node4 = new SingleList.Node(3, node3);
+
+        SingleList.Node node5 = new SingleList.Node(8, null);
+        SingleList.Node node6 = new SingleList.Node(6, node5);
+        SingleList.Node node7 = new SingleList.Node(5, node6);
+        SingleList.Node node8 = new SingleList.Node(2, node7);
+        SingleList.Node node9 = new SingleList.Node(1, node8);
+        SingleList singleList = new SingleList();
+        SingleList.Node result = singleList.merge(node4,node9);
+        while (null != result){
+            System.out.println(result.data);
+            result=result.next;
+        }
+    }
 }

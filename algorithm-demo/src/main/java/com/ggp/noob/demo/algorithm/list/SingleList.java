@@ -12,6 +12,10 @@ package com.ggp.noob.demo.algorithm.list;
  * 删除链表倒数第n个节点--快慢指针
  * <p>
  * 求链表中的中间节点--快慢指针
+ * <p>
+ * 判断链表中是否有环--快慢指针
+ * <p>
+ * 两个有序链表合并
  */
 public class SingleList {
     static class Node {
@@ -103,15 +107,16 @@ public class SingleList {
             return slow;
 
         }
+
         //判断链表是否有环 快慢指针
-        public boolean hasRing(){
+        public boolean hasRing() {
             Node fast = sentinel.next;
             Node slow = sentinel.next;
-            while (null != fast){
+            while (null != fast) {
                 fast = fast.next.next;
                 slow = slow.next;
                 //如果存在环，快指针和慢指针肯定会相遇
-                if(slow.equals(fast)){
+                if (slow.equals(fast)) {
                     return true;
                 }
             }
@@ -143,6 +148,30 @@ public class SingleList {
             head = temp;
         }
         return pre;
+    }
+
+    //两个有序链表合并
+    public Node merge(Node head1, Node head2) {
+        //利用哨兵的思想
+        Node result = new Node(0, null);
+        Node p = result;
+        while (null != head1 && null != head2) {
+            if (head1.data < head2.data) {
+                p.next = head1;
+                head1 = head1.next;
+            } else {
+                p.next = head2;
+                head2 = head2.next;
+            }
+            p = p.next;
+        }
+        if (null != head1) {
+            p.next = head1;
+        }
+        if (null != head2) {
+            p.next = head2;
+        }
+        return result.next;
     }
 
 }
