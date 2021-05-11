@@ -71,4 +71,16 @@ public class SingleListTest {
         System.out.println("中间节点");
         System.out.println(linkList.getMid().data);
     }
+
+    @Test
+    public void test_has_ring(){
+        SingleList.LinkList linkList = new SingleList.LinkList();
+        SingleList.Node node1 = new SingleList.Node(1,null);
+        SingleList.Node node2 = new SingleList.Node(2,node1);
+        SingleList.Node node3 = new SingleList.Node(3,node2);
+        node1.next=node3;
+        SingleList.Node node4 = new SingleList.Node(4,node3);
+        linkList.sentinel.next = node4;
+        System.out.println(linkList.hasRing());
+    }
 }

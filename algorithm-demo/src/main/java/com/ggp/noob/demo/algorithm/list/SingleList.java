@@ -26,7 +26,7 @@ public class SingleList {
 
     static class LinkList {
 
-        private Node sentinel;
+        public Node sentinel;
 
         public LinkList() {
             //哨兵数据放-1，作为边界值(这里只是做实验)
@@ -102,6 +102,20 @@ public class SingleList {
             }
             return slow;
 
+        }
+        //判断链表是否有环 快慢指针
+        public boolean hasRing(){
+            Node fast = sentinel.next;
+            Node slow = sentinel.next;
+            while (null != fast){
+                fast = fast.next.next;
+                slow = slow.next;
+                //如果存在环，快指针和慢指针肯定会相遇
+                if(slow.equals(fast)){
+                    return true;
+                }
+            }
+            return false;
         }
 
         //链表打印
