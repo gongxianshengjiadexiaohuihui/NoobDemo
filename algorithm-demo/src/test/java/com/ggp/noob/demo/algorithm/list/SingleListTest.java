@@ -56,4 +56,19 @@ public class SingleListTest {
         linkList.deleteInverseN(2);
         linkList.print();
     }
+    //求链表中间节点
+    @Test
+    public void test_get_mid(){
+        SingleList.LinkList linkList = new SingleList.LinkList();
+        //插入第一个节点
+        linkList.insert(1,-1);
+        linkList.insert(2,1);
+        linkList.insert(3,2);
+        linkList.insert(4,3);
+        linkList.insert(5,4);
+        linkList.insert(6,5);
+        linkList.print();
+        System.out.println("中间节点");
+        System.out.println(linkList.getMid().data);
+    }
 }

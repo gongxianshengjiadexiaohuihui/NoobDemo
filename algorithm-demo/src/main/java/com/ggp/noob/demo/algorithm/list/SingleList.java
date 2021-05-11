@@ -3,14 +3,15 @@ package com.ggp.noob.demo.algorithm.list;
 /**
  * @Author:ggp
  * @Date:2021/5/11 09:48
- * @Description:
- * 单链表反转
- *
+ * @Description: 单链表反转
+ * <p>
  * 带头链表，又称哨兵链表
  * 哨兵的作用是----------简化边界
  * 在循环次数很多的场景下，能在每次循环中都简化一次边界判断
- *
+ * <p>
  * 删除链表倒数第n个节点--快慢指针
+ * <p>
+ * 求链表中的中间节点--快慢指针
  */
 public class SingleList {
     static class Node {
@@ -66,27 +67,41 @@ public class SingleList {
             pre.next = pre.next.next;
             return true;
         }
+
         //删除倒数第n个节点  快慢指针
-        public boolean deleteInverseN(int n){
+        public boolean deleteInverseN(int n) {
             Node fast = sentinel.next;
             Node slow = sentinel.next;
             //因为是单链表，要记录要删除节点的前置节点
-            Node pre =null;
-            int i=1;
+            Node pre = null;
+            int i = 1;
             //快指针先走到n
-            while (i<n){
-                fast =fast.next;
+            while (i < n) {
+                fast = fast.next;
                 i++;
             }
             //快指针和慢指针一起走，快指针都到终点，慢指针刚好走到倒数第n个节点
-            while (null !=fast.next){
-                fast =fast.next;
-                pre=slow;
-                slow =slow.next;
+            while (null != fast.next) {
+                fast = fast.next;
+                pre = slow;
+                slow = slow.next;
             }
             //此时slow就是要找的节点
             pre.next = pre.next.next;
             return true;
+        }
+
+        //求链表中的中间节点  快慢指针
+        public Node getMid() {
+            Node fast = sentinel.next;
+            Node slow = sentinel.next;
+            //快指针走两步，慢指针走一步，快指针走到终点，慢指针走到中间 fast.next.next判空是针对偶数个节点的情况
+            while (null != fast.next && null != fast.next.next) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            return slow;
+
         }
 
         //链表打印
