@@ -22,7 +22,7 @@ public class ArrayStackTest {
     }
 
     @Test
-    public void test_base_function() {
+    public void test_FILO() {
         ArrayStack stack = new ArrayStack(5);
         stack.push("1");
         stack.push("2");

@@ -14,32 +14,32 @@ public class ArrayStack {
     public ArrayStack(int size) {
         this.stack = new String[size];
         this.size = size;
-        this.top=-1;
+        this.top=0;
     }
 
     //入栈
     public boolean push(String item) {
-        if (top == size-1) {
+        if (top == size) {
             //栈满
             return false;
         }
-        stack[++top]=item;
+        stack[top++]=item;
         return true;
     }
 
     //出栈
     public String pop() {
-        if(top==-1){
+        if(top==0){
             //栈空
             return null;
         }
-        return stack[top--];
+        return stack[--top];
     }
     //打印
     public void print(){
         int temp = top;
-        while (temp !=-1){
-            System.out.println(stack[temp--]);
+        while (temp !=0){
+            System.out.println(stack[--temp]);
         }
     }
 }
