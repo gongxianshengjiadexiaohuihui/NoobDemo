@@ -1,31 +1,31 @@
 
-c	java:S100c"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğó¾Ï
-]
-java:S1126q"BReplace this if-then-else statement by a single method invocation.(ÇİÉñûÿÿÿÿ
-l	java:S117‘"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’É±Öşÿÿÿÿ
-T
-java:S1197‘"8Move the array designator from the variable to the type.(’É±Öşÿÿÿÿ
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŒâ–úÿÿÿÿ
-e	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï£§
+h
+java:S3008!"MRename this field "CK" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©ÖŸéÿÿÿÿÿ
+f	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ»ÍÕ
+l	java:S117ª"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âõ¾–ùÿÿÿÿ
 :
 java:S1659P"Declare "n" on a separate line.(âş©Éÿÿÿÿÿ
+e	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï£§
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŒâ–úÿÿÿÿ
+l	java:S117‘"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’É±Öşÿÿÿÿ
+]
+java:S1126q"BReplace this if-then-else statement by a single method invocation.(ÇİÉñûÿÿÿÿ
+f	java:S117c"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğó¾Ï
+b	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï£§
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŒâ–úÿÿÿÿ
+c	java:S100c"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğó¾Ï
+O
+java:S1118":Add a private constructor to hide the implicit public one.(Ñ‘£.
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŒâ–úÿÿÿÿ
+c
+java:S3008,"MRename this field "FK" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ş”†
 c	java:S100M"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ»ÍÕ
 k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŒâ–úÿÿÿÿ
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŒâ–úÿÿÿÿ
-b	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï£§
 e	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï£§
-h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŒâ–úÿÿÿÿ
+g	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ßË—
+f	java:S117c"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğó¾Ï
 k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŒâ–úÿÿÿÿ
 j
 java:S30082"ORename this field "Sbox" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Ø³øşÿÿÿÿ
-f	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ»ÍÕ
-f	java:S117c"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğó¾Ï
-c
-java:S3008,"MRename this field "FK" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ş”†
-h
-java:S3008!"MRename this field "CK" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©ÖŸéÿÿÿÿÿ
-f	java:S117c"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğó¾Ï
-O
-java:S1118":Add a private constructor to hide the implicit public one.(Ñ‘£.
-g	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ßË—
-l	java:S117ª"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âõ¾–ùÿÿÿÿ
+T
+java:S1197‘"8Move the array designator from the variable to the type.(’É±Öşÿÿÿÿ
