@@ -34,4 +34,21 @@ public class ArrayQueueTest {
         Assert.assertEquals(queue.deQueue(),"4");
         Assert.assertEquals(queue.deQueue(),"5");
     }
+    @Test
+    public void test_expansion(){
+        ArrayQueue queue = new ArrayQueue(5);
+        queue.enQueue("1");
+        queue.enQueue("2");
+        queue.enQueue("3");
+        queue.enQueue("4");
+        queue.enQueue("5");
+        Assert.assertEquals(queue.deQueue(),"1");
+        Assert.assertEquals(queue.deQueue(),"2");
+        Assert.assertEquals(queue.deQueue(),"3");
+        queue.enQueue("6");
+        queue.enQueue("7");
+        queue.enQueue("8");
+        Assert.assertFalse(queue.enQueue("9"));
+
+    }
 }

@@ -14,19 +14,30 @@ public class ArrayQueue {
     public ArrayQueue(int size) {
         this.size = size;
         queue = new String[size];
-        this.head=0;
-        this.tail=0;
+        this.head = 0;
+        this.tail = 0;
     }
-    public boolean enQueue(String item){
-        if(tail == size){
-            //队列满了
-            return false;
+
+    public boolean enQueue(String item) {
+        if (tail == size) {
+            //尾指针到终点 开始搬迁
+            if (head == 0) {
+                //队列满了
+                return false;
+            }
+            int len = tail - head;
+            for (int i = 0; i < len; i++) {
+                queue[i] = queue[head + i];
+            }
+            head=0;
+            tail=len;
         }
-        queue[tail++]=item;
+        queue[tail++] = item;
         return true;
     }
-    public String deQueue(){
-        if(head == tail){
+
+    public String deQueue() {
+        if (head == tail) {
             //队列为空
             return null;
         }
