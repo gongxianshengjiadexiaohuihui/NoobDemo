@@ -14,5 +14,6 @@
     <file url="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo-redis/spring-boot-demo-redis-jedis" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo-redis/spring-boot-demo-redis-redission" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo-rocketmq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo-stopwatch" charset="UTF-8" />
   </component>
 </project>

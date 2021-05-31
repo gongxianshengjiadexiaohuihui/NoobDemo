@@ -15,6 +15,7 @@
         <module>spring-boot-demo-rabbitmq</module>
         <module>spring-boot-demo-rocketmq</module>
         <module>spring-boot-demo-redis</module>
+        <module>spring-boot-demo-stopwatch</module>
     </modules>
     <properties>
         <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
