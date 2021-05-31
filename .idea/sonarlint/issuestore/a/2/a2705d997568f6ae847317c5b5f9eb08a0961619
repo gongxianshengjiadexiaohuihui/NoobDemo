@@ -1,0 +1,10 @@
+
+k
+java:S4042m"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(’«ÌÌ8ˆƒ¶ðƒ/
+k
+java:S4042v"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(’«ÌÌ8ˆƒ¶ðƒ/
+W	java:S899v";Do something with the "boolean" value returned by "delete".(’«ÌÌ8ˆƒ¶ðƒ/
+k
+java:S4042j"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(’«ÌÌ8ˆƒ¶ðƒ/
+W	java:S899j";Do something with the "boolean" value returned by "delete".(’«ÌÌ8ˆƒ¶ðƒ/
+W	java:S899m";Do something with the "boolean" value returned by "delete".(’«ÌÌ8ˆƒ¶ðƒ/

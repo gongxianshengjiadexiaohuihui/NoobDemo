@@ -1,0 +1,17 @@
+
+Q
+java:S2864S"4Iterate over the "entrySet" instead of the "keySet".(„½Ø¢8Š˜”õé.
+Z	java:S106X"9Replace this use of System.out or System.err by a logger.(ÿº§‹ûÿÿÿÿ8Š˜”õé.
+T	java:S106T"9Replace this use of System.out or System.err by a logger.(”Œ¢h8Š˜”õé.
+Z	java:S106Z"9Replace this use of System.out or System.err by a logger.(–µé›ıÿÿÿÿ8Š˜”õé.
+Z	java:S106%"9Replace this use of System.out or System.err by a logger.(§´–Èüÿÿÿÿ8êŸõé.
+V
+java:S2864["4Iterate over the "entrySet" instead of the "keySet".(½Ö²’ûÿÿÿÿ8Š˜”õé.
+Z	java:S106\"9Replace this use of System.out or System.err by a logger.(áè”ıÿÿÿÿ8Š˜”õé.
+p
+java:S3824E"NReplace this "Map.get()" and condition with a call to "Map.computeIfAbsent()".(æˆú§úÿÿÿÿ8Š˜”õé.
+Z	java:S106^"9Replace this use of System.out or System.err by a logger.(‹¾úúüÿÿÿÿ8Š˜”õé.
+U	java:S106U"9Replace this use of System.out or System.err by a logger.(Ôú‰’8Š˜”õé.
+L
+java:S37408"/Provide the parametrized type for this generic.(³å„Õ8Š˜”õé.
+U	java:S106K"9Replace this use of System.out or System.err by a logger.(ú«ÀØ8Š˜”õé.

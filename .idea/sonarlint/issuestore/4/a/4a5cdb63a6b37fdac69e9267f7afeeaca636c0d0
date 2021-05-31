@@ -1,0 +1,19 @@
+
+T	java:S106i"9Replace this use of System.out or System.err by a logger.(âäÛp8Ğì©­•/
+D
+java:S1659""Declare "head" on a separate line.(ÙÀˆÜüÿÿÿÿ8¤°î¨•/
+D
+java:S1659""Declare "temp" on a separate line.(ÙÀˆÜüÿÿÿÿ8Ï–’©•/
+z	java:S135+"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8Ñ‚ò«•/
+c
+java:S1126G"AReplace this if-then-else statement by a single return statement.(áÚ·Àúÿÿÿÿ8¸½£­•/
+Z	java:S106j"9Replace this use of System.out or System.err by a logger.(‡è˜ºşÿÿÿÿ8ËÃ¼ª•/
+?
+java:S1659(""Declare "slow" on a separate line.(ãëÂû8°µß©•/
+T	java:S106f"9Replace this use of System.out or System.err by a logger.(âäÛp8Çï¬•/
+>
+java:S1659("!Declare "pre" on a separate line.(ãëÂû8ëğÛ«•/
+t
+java:S3776 "RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Şî¤óúÿÿÿÿ8Ì™é¬•/
+?
+java:S1659(""Declare "fast" on a separate line.(ãëÂû8¦•ë©•/
