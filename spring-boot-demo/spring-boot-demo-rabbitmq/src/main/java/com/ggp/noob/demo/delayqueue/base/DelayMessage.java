@@ -1,4 +1,4 @@
-package com.ggp.noob.demo.delayqueue;
+package com.ggp.noob.demo.delayqueue.base;
 
 
 import java.time.Duration;
@@ -15,7 +15,6 @@ public class DelayMessage<T> {
      * 消息实体
      */
     private T body;
-
 
 
     public T getBody() {

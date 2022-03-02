@@ -17,4 +17,5 @@ public interface DelayedQueue {
 
     @Input(INPUT)
     SubscribableChannel input();
+
 }

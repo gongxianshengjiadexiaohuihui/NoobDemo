@@ -1,5 +1,9 @@
 package com.ggp.noob.demo.delayqueue;
 
+import com.ggp.noob.demo.delayqueue.base.CallBackFunction;
+import com.ggp.noob.demo.delayqueue.base.CallBackMethodInfo;
+import com.ggp.noob.demo.delayqueue.base.DelayMessage;
+import com.ggp.noob.demo.delayqueue.base.MessageAttribute;
 import com.ggp.noob.demo.delayqueue.config.DelayedQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +15,9 @@ import javax.sql.rowset.serial.SerialException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.lang.invoke.SerializedLambda;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
@@ -31,7 +38,7 @@ public class DelayedSender {
         delayMessage.setBody(message);
         //填充发送者的消息属性
         fillSenderInfo(delayMessage,delayTime);
-        //序列化lambda函数
+        //处理lambda函数
         resolveCallBackMethod(delayMessage, callBack);
         delayedQueue.output().send(MessageBuilder.withPayload(delayMessage).setHeader("x-delay",delayTime).build());
     }
@@ -43,18 +50,41 @@ public class DelayedSender {
         message.setMessageAttribute(messageAttribute);
     }
 
-    private void resolveCallBackMethod(DelayMessage message, CallBackFunction callBack) throws SerialException, IOException {
+    private void resolveCallBackMethod(DelayMessage message, CallBackFunction callBack) throws Exception {
         //校验lambda是否实现序列化接口
+        Method method;
         try {
-            callBack.getClass().getDeclaredMethod("writeReplace");
+            method = callBack.getClass().getDeclaredMethod("writeReplace");
         } catch (NoSuchMethodException e) {
             logger.error("what class callBack method in need implement Serializable interface !");
             throw new SerialException();
         }
+        //解析lambda方法信息
+        parseMethodInfo(message, callBack, method);
         //序列化填充callback方法 jackson未支持，需要手动序列化
+        SerializeLambdaMethod(message, callBack);
+    }
+
+    private void parseMethodInfo(DelayMessage message, CallBackFunction callBack, Method method) throws IllegalAccessException, InvocationTargetException {
+        CallBackMethodInfo methodInfo = new CallBackMethodInfo();
+        method.setAccessible(true);
+        SerializedLambda serializedLambda =(SerializedLambda) method.invoke(callBack);
+        methodInfo.setCaller(serializedLambda.getImplClass().replace("/","."));
+        methodInfo.setMethodName(serializedLambda.getImplMethodName());
+        String signature = serializedLambda.getImplMethodSignature();
+        //解析方法参数类型
+        String type = signature.substring(1, signature.indexOf(")"));
+        if(type.charAt(0)=='L'){
+            String paramType = type.substring(1,type.length()-1).replace("/",".");
+            methodInfo.setParamClassName(paramType);
+        }
+        message.getMessageAttribute().setCallBackMethodInfo(methodInfo);
+    }
+
+    private void SerializeLambdaMethod(DelayMessage message, CallBackFunction callBack) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream os = new ObjectOutputStream(bos);
         os.writeObject(callBack);
-        message.getMessageAttribute().setCallback(bos.toByteArray());
+        message.getMessageAttribute().getCallBackMethodInfo().setCallback(bos.toByteArray());
     }
 }

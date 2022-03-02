@@ -1,22 +1,21 @@
 package com.ggp.noob.demo.delayqueue;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ggp.noob.demo.delayqueue.base.CallBackFunction;
+import com.ggp.noob.demo.delayqueue.base.DelayMessage;
 import com.ggp.noob.demo.delayqueue.config.DelayedQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.core.serializer.support.SerializationFailedException;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
-
-import javax.sql.rowset.serial.SerialException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
-import java.lang.invoke.SerializedLambda;
-import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 
 /**
@@ -35,45 +34,35 @@ public class DelayedReceiver {
         }
         //反序列化获取lambda方法
         CallBackFunction function = resolveLambdaFunction(message);
-        //解析lambda方法的请求参数类型
-        Class paramClass = resolveRequestParam(function);
         //请求参数类型进行反序列化
-        Object param = parseMessageBody(paramClass,message.getBody());
+        Object param = parseMessageBody(message);
         //执行方法
         function.accept(param);
+        throw new RuntimeException("test");
 
     }
 
     private CallBackFunction resolveLambdaFunction(DelayMessage message) throws IOException, ClassNotFoundException {
-        ObjectInput oi = new ObjectInputStream(new ByteArrayInputStream(message.getMessageAttribute().getCallback()));
+        ObjectInput oi = new ObjectInputStream(new ByteArrayInputStream(message.getMessageAttribute().getCallBackMethodInfo().getCallback()));
         CallBackFunction function = (CallBackFunction) oi.readObject();
         return function;
     }
 
-    private Object parseMessageBody(Class paramClass, Object body) throws SerialException {
+    private Object parseMessageBody(DelayMessage message) throws Exception {
+        String paramClass = message.getMessageAttribute().getCallBackMethodInfo().getParamClassName();
+        Object body = message.getBody();
         if(null == paramClass){
             return body;
         }
+        Class type = Class.forName(paramClass);
         try {
             ObjectMapper mapper = new ObjectMapper();
             String value = mapper.writeValueAsString(body);
-            return mapper.readValue(value,paramClass);
+            return mapper.readValue(value,type);
         } catch (Exception e) {
-            throw new SerializationFailedException("Deserialization class "+paramClass.getName()+" fail");
+            throw new SerializationFailedException("Deserialization class "+paramClass+" fail");
         }
     }
 
-    private Class resolveRequestParam(CallBackFunction function) throws Exception {
-        Method method = function.getClass().getDeclaredMethod("writeReplace");
-        method.setAccessible(true);
-        SerializedLambda serializedLambda =(SerializedLambda) method.invoke(function);
-        String signature = serializedLambda.getImplMethodSignature();
-        String type = signature.substring(1, signature.indexOf(")"));
-        if(type.charAt(0)=='L'){
-            String className = type.substring(1,type.length()-1).replace("/",".");
-            return Class.forName(className);
-        }
-        return null;
-    }
 }
 

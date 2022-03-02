@@ -1,4 +1,4 @@
-package com.ggp.noob.demo.delayqueue;
+package com.ggp.noob.demo.delayqueue.base;
 
 import java.io.Serializable;
 

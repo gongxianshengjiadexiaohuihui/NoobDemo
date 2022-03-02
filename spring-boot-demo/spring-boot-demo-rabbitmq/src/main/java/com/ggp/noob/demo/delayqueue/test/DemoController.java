@@ -28,7 +28,7 @@ public class DemoController {
         Person person = new Person();
         person.setName("ggp");
         person.setAge(18);
-        delayedSender.delayedMessage(TimeUnit.SECONDS,2,true,worker::workBoolean);
+        delayedSender.delayedMessage(TimeUnit.SECONDS,2,person,worker::workObject);
         return "scs send ok";
     }
 }

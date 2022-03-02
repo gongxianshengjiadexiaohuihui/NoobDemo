@@ -1,0 +1,42 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: rabbitmq-demo
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+
+  cloud:
+    stream:
+      bindings:
+        delayed-topic-output:
+          destination: delayed-topic-${spring.application.name}
+        delayed-topic-input:
+          destination: delayed-topic-${spring.application.name}
+          group: default-group-${spring.application.name}
+        dead-letter-topic-input:
+          destination: ${spring.application.name}-DLX
+          group: ${spring.application.name}-DLX-group
+      rabbit:
+        bindings:
+          delayed-topic-output:
+            producer:
+              delayed-exchange: true
+          delayed-topic-input:
+            consumer:
+              delayed-exchange: true
+              autoBindDlq: true
+              deadLetterExchange: ${spring.application.name}-DLX
+              deadLetterQueueName: ${spring.application.name}-DLX.${spring.application.name}-DLX-group
+
+logging:
+  level:
+    com.ggp: debug
+
+
+
