@@ -1,4 +1,4 @@
-package com.ggp;
+package com.ggp.noob.demo.basic;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.ggp;
+package com.ggp.noob.demo.basic;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;

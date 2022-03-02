@@ -18,7 +18,7 @@
         <module>spring-boot-demo-stopwatch</module>
     </modules>
     <properties>
-        <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
     </properties>
     <dependencyManagement>
         <dependencies>

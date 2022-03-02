@@ -6,20 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-boot-demo-rabbitmq" />
-        <module name="container-demo" />
-        <module name="spring-boot-demo-redis-jedis" />
-        <module name="concurrent-demo" />
-        <module name="io-demo" />
-        <module name="leetcode-demo" />
         <module name="spring-boot-demo-redis-redission" />
-        <module name="base-demo" />
         <module name="algorithm-demo" />
         <module name="spring-boot-demo-rocketmq" />
         <module name="spring-boot-demo-stopwatch" />
+        <module name="spring-boot-demo-rabbitmq" />
+        <module name="container-demo" />
+        <module name="io-demo" />
+        <module name="base-demo" />
+        <module name="spring-boot-demo-redis-jedis" />
+        <module name="concurrent-demo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="leetcode-demo" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

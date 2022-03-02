@@ -1,4 +1,4 @@
-package com.ggp;
+package com.ggp.noob.demo.basic;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
