@@ -14,6 +14,6 @@ import org.springframework.stereotype.Component;
 public class DeadLetterDeal {
     @StreamListener(DeadLetterQueue.INPUT)
     public void receive(@Payload DelayMessage message){
-        System.out.println("开始消费死信============================");
+        System.out.println("开始消费死信============================"+message.printAttributeInfo());
     }
 }
