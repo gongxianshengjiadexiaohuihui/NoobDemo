@@ -7,6 +7,7 @@ import com.ggp.noob.demo.delayqueue.config.DelayedQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.AmqpRejectAndDontRequeueException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.core.serializer.support.SerializationFailedException;
@@ -25,6 +26,8 @@ import java.time.LocalDateTime;
 @Component
 public class DelayedReceiver {
     private Logger logger = LoggerFactory.getLogger(DelayedReceiver.class);
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @StreamListener(DelayedQueue.INPUT)
     public void receive(@Payload DelayMessage message) throws Exception {
@@ -56,9 +59,8 @@ public class DelayedReceiver {
         }
         Class type = Class.forName(paramClass);
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            String value = mapper.writeValueAsString(body);
-            return mapper.readValue(value,type);
+            String value = objectMapper.writeValueAsString(body);
+            return objectMapper.readValue(value,type);
         } catch (Exception e) {
             throw new SerializationFailedException("Deserialization class "+paramClass+" fail");
         }

@@ -9,6 +9,16 @@ spring:
     port: 5672
     username: guest
     password: guest
+    publisher-confirms: true
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 1000
+        default-requeue-rejected: false
+    template:
+      mandatory: true
 
 
   cloud:

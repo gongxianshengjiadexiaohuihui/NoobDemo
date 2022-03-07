@@ -1,4 +1,4 @@
-package com.ggp.noob.demo.delayqueue.deadletter;
+package com.ggp.noob.demo.deadletter;
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.messaging.SubscribableChannel;
