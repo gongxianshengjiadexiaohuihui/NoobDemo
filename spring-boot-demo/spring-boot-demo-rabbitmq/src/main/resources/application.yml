@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: rabbitmq-demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: ggp@1234
 
   rabbitmq:
     host: 127.0.0.1
@@ -43,10 +48,5 @@ spring:
               autoBindDlq: true
               deadLetterExchange: ${spring.application.name}-DLX
               deadLetterQueueName: ${spring.application.name}-DLX.${spring.application.name}-DLX-group
-
-logging:
-  level:
-    com.ggp: debug
-
 
 

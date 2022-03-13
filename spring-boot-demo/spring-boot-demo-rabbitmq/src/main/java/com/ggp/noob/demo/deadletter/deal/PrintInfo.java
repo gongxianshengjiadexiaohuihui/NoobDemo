@@ -10,9 +10,15 @@ import java.util.Map;
  */
 @Order(1)
 @Component
-public class Deal2 implements DeadLetterMessageDeal {
+public class PrintInfo implements DeadLetterMessageDeal {
     @Override
     public void deal(Object message, Map headers) {
-        System.out.println("deal2");
+        System.out.println("打印死信信息");
+        headers.keySet().forEach(
+                e->{
+                    System.out.println(e+":"+headers.get(e));
+                }
+        );
+        System.out.println("message:"+message.toString());
     }
 }
